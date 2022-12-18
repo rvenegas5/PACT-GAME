@@ -22,8 +22,10 @@ import gameOverSound from '../assets/sounds/game-over-sound.mp3'
 //DRAW 4 WILD - 600
 
 let socket
-// const ENDPOINT = 'http://localhost:5000'
-const ENDPOINT = 'https://uno-online-multiplayer.herokuapp.com/'
+// Dev Endpoint
+const ENDPOINT = 'http://localhost:80'
+//const ENDPOINT = 'https://testapplication1.ngrok.io'
+//const ENDPOINT = 'https://uno-online-multiplayer.herokuapp.com/'
 
 const Game = (props) => {
     const data = queryString.parse(props.location.search)
@@ -1221,7 +1223,7 @@ const Game = (props) => {
 
                 <div className='topInfo'>
                     <img src={require('../assets/logo.png').default} />
-                    <h1>Game Code: {room}</h1>
+                    <h1 style={{ color: "#000", marginTop: "55px" }}>Game Code: {room}</h1>
                     <span>
                         <button className='game-button green' onClick={() => setSoundMuted(!isSoundMuted)}>{isSoundMuted ? <span className="material-icons">volume_off</span> : <span className="material-icons">volume_up</span>}</button>
                         <button className='game-button green' onClick={() => {
@@ -1236,7 +1238,7 @@ const Game = (props) => {
 
                 {/* PLAYER LEFT MESSAGES */}
                 {users.length===1 && currentUser === 'Player 2' && <h1 className='topInfoText'>Player 1 has left the game.</h1> }
-                {users.length===1 && currentUser === 'Player 1' && <h1 className='topInfoText'>Waiting for Player 2 to join the game.</h1> }
+                {users.length===1 && currentUser === 'Player 1' && <h1 className='topInfoText'>Esperando a que el jugador 2 se una al juego.</h1> }
 
                 {users.length===2 && <>
 
@@ -1285,7 +1287,7 @@ const Game = (props) => {
                         <div className="chatBoxWrapper">
                             <div className="chat-box chat-box-player1">
                                 <div className="chat-head">
-                                    <h2>Chat Box</h2>
+                                    <h2>Chat</h2>
                                     {!isChatBoxHidden ?
                                     <span onClick={toggleChatBox} class="material-icons">keyboard_arrow_down</span> :
                                     <span onClick={toggleChatBox} class="material-icons">keyboard_arrow_up</span>}
@@ -1300,7 +1302,7 @@ const Game = (props) => {
                                         })}
                                     </div>
                                     <div className="chat-text">
-                                        <input type='text' placeholder='Type a message...' value={message} onChange={event => setMessage(event.target.value)} onKeyPress={event => event.key==='Enter' && sendMessage(event)} />
+                                        <input type='text' placeholder='Escribe un mensaje...' value={message} onChange={event => setMessage(event.target.value)} onKeyPress={event => event.key==='Enter' && sendMessage(event)} />
                                     </div>
                                 </div>
                             </div>
@@ -1349,7 +1351,7 @@ const Game = (props) => {
                         <div className="chatBoxWrapper">
                             <div className="chat-box chat-box-player2">
                                 <div className="chat-head">
-                                    <h2>Chat Box</h2>
+                                    <h2>Chat</h2>
                                     {!isChatBoxHidden ?
                                     <span onClick={toggleChatBox} class="material-icons">keyboard_arrow_down</span> :
                                     <span onClick={toggleChatBox} class="material-icons">keyboard_arrow_up</span>}
@@ -1364,7 +1366,7 @@ const Game = (props) => {
                                         })}
                                     </div>
                                     <div className="chat-text">
-                                        <input type='text' placeholder='Type a message...' value={message} onChange={event => setMessage(event.target.value)} onKeyPress={event => event.key==='Enter' && sendMessage(event)} />
+                                        <input type='text' placeholder='Escribir un mensaje...' value={message} onChange={event => setMessage(event.target.value)} onKeyPress={event => event.key==='Enter' && sendMessage(event)} />
                                     </div>
                                 </div>
                             </div>
