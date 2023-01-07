@@ -12,7 +12,8 @@ let maxPlayers = 4;
 const Room = props => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const code = searchParams.get("code");  const [room, setRoom] = useState(code);
+  const code = searchParams.get("code");
+  const [room, setRoom] = useState(code);
   const [roomFull, setRoomFull] = useState(false);
 
   // Initialize socket
@@ -36,7 +37,7 @@ const Room = props => {
   const validateFull = players => {
     if (players.length === maxPlayers) setRoomFull(true);
   };
-  return <div>Room</div>;
+  return <div>Room: {room}</div>;
 };
 
 export { Room };
