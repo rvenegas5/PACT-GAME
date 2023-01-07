@@ -1,15 +1,22 @@
-import './App.css'
-import { Route } from 'react-router-dom'
-import Homepage from './components/Homepage'
-import Game from './components/Game'
+import "./App.css";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Welcome } from "./components/Welcome";
+import { Room } from "./components/Room";
+import { WaitRoom } from "./components/WaitRoom";
 
 const App = () => {
   return (
     <div className="App">
-      <Route path='/' exact component={Homepage} />
-      <Route path='/play' exact component={Game} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/waitRoom" element={<WaitRoom />} />
+          <Route path="/room" element={<Room />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export { App };
