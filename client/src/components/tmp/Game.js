@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import PACK_OF_CARDS from "../utils/packOfCards";
-import shuffleArray from "../utils/shuffleArray";
+import PACK_OF_CARDS from "../../utils/packOfCards";
+import shuffleArray from "../../utils/shuffleArray";
 import io from "socket.io-client";
 import queryString from "query-string";
-import Spinner from "./Spinner";
+import { Spinner } from "./Spinner";
 import useSound from "use-sound";
 
 import bgMusic from "../assets/sounds/game-bg-music.mp3";
@@ -1797,7 +1797,7 @@ const Game = props => {
                             key={i}
                             className="Card"
                             onClick={() => onCardPlayedHandler(item)}
-                            src={require(`../assets/card-back.png`).default}
+                            src={`../assets/card-back.png`}
                           />
                         ))}
                         {turn === "Player 2" && <Spinner />}
@@ -2054,4 +2054,4 @@ const Game = props => {
   );
 };
 
-export default Game;
+export { Game };

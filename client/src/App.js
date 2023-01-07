@@ -1,6 +1,10 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// import { Game } from "./components/tmp/Game";
+// import { Homepage } from "./components/Homepage";
+
 import { Welcome } from "./components/Welcome";
 import { Room } from "./components/Room";
 import { WaitRoom } from "./components/WaitRoom";
@@ -15,6 +19,9 @@ const App = () => {
           <Route path="/waitRoom" element={<WaitRoom />} />
           <Route path="/room" element={<Room />} />
           <Route path="*" element={<NotFound />} />
+          {/* <Route path="/" element={<Homepage />} />
+          <Route path="/game" element={<Game />} />
+          <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

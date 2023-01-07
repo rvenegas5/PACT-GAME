@@ -16,11 +16,12 @@ const WaitRoom = props => {
   const code = searchParams.get("code");
   const [room, setRoom] = useState(code);
   const [roomFull, setRoomFull] = useState(false);
-  const [users, setUser] = useState([]);
+  const [user, setUser] = useState({});
+  const [players, setPlayers] = useState([]);
 
   // Initialize socket
   useEffect(() => {
-    if (users.length < 4) {
+    if (players.length < 4) {
       const connectionOptions = {
         forceNew: true,
         reconnectionAttempts: "Infinity",
@@ -31,14 +32,9 @@ const WaitRoom = props => {
       socket.emit("join", { room: room }, error => {
         if (error) console.error(error);
       });
-
+    } else {
+      navigate(-1);
     }
-    socket.on("initGame", payload => {
-      if (payload.initGame) {
-        setRoomFull(true);
-      }
-    });
-
     return function cleanup() {
       socket.emit("logOut");
       socket.off();
@@ -51,36 +47,28 @@ const WaitRoom = props => {
       setRoomFull(true);
     });
 
-    socket.on("roomData", ({ data }) => {
+    socket.on("roomData", data => {
+      // alert("roomData");
       console.log("roomData", data);
+      setPlayers(data.users);
     });
     socket.on("currentUserData", ({ data }) => {
+      // alert("currentUserData");
       console.log("currentUserData", data);
-      users.push(data);
       setUser(data);
     });
   }, []);
 
   useEffect(() => {
-    if (roomFull) {
-      console.log("Room:", room, "redirecting...");
-      navigate("room?code=" + room, { replace: true });
-    }
+    if (roomFull) navigate(-1, `/room?code=${room}`, { state: { players: players } });
   }, [roomFull]);
-
-  useEffect(() => {
-    if (users.length === maxPlayers) {
-      alert("effect:The room is full");
-      setRoomFull(true);
-    }
-  }, [users]);
 
   return (
     <div>
       {!roomFull && (
         <div>
           <h2>Waiting </h2>
-          <p>Your are {users.name}, share the code</p>
+          <p>Your are {user.name}, share the code</p>
           <span>{room}</span>
         </div>
       )}

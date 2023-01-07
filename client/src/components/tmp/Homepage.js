@@ -33,4 +33,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export { Homepage };
