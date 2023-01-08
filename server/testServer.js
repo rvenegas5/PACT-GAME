@@ -24,7 +24,7 @@ io.on("connection", (socket) => {
 
     if (numberOfUsersInRoom > maxUsers) {
       console.log(">>> its full");
-      socket.emit("roomFull");
+      socket.to(payload.room).emit("roomFull");
     }
     if (numberOfUsersInRoom === maxUsers) {
       socket.emit("initGame", { initGame: true });
