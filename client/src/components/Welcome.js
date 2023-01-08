@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { generateRandomPath } from "../utils/generateRandomPath";
 import Cookies from "js-cookie";
 
-const Welcome = () => {
+const Welcome = ({ redirectTo }) => {
   const navigate = useNavigate();
 
   const [roomCode, setRoomCode] = useState("");
@@ -19,14 +19,16 @@ const Welcome = () => {
   const joinRoom = () => {
     if (roomCode === "") return;
     saveRoomCode(roomCode);
-    navigate(`/waitRoom`);
+    if (redirectTo === "game") navigate(`/game?roomCode=${roomCode}`);
+    else navigate("/waitRoom");
   };
 
   const createRoom = () => {
     const roomCode = randomCodeGenerator(5);
     setRoomCode(roomCode);
     saveRoomCode(roomCode);
-    navigate(`/waitRoom`);
+    if (redirectTo === "game") navigate(`/game?roomCode=${roomCode}`);
+    else navigate("/waitRoom");
   };
 
   return (

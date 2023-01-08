@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 import PACK_OF_CARDS from "../../utils/packOfCards";
 import shuffleArray from "../../utils/shuffleArray";
 import io from "socket.io-client";
-import queryString from "query-string";
+
 import { Spinner } from "./Spinner";
 import useSound from "use-sound";
 
-import bgMusic from "../assets/sounds/game-bg-music.mp3";
-import unoSound from "../assets/sounds/uno-sound.mp3";
-import shufflingSound from "../assets/sounds/shuffling-cards-1.mp3";
-import skipCardSound from "../assets/sounds/skip-sound.mp3";
-import draw2CardSound from "../assets/sounds/draw2-sound.mp3";
-import wildCardSound from "../assets/sounds/wild-sound.mp3";
-import draw4CardSound from "../assets/sounds/draw4-sound.mp3";
-import gameOverSound from "../assets/sounds/game-over-sound.mp3";
+import bgMusic from "../../assets/sounds/game-bg-music.mp3";
+import unoSound from "../../assets/sounds/uno-sound.mp3";
+import shufflingSound from "../../assets/sounds/shuffling-cards-1.mp3";
+import skipCardSound from "../../assets/sounds/skip-sound.mp3";
+import draw2CardSound from "../../assets/sounds/draw2-sound.mp3";
+import wildCardSound from "../../assets/sounds/wild-sound.mp3";
+import draw4CardSound from "../../assets/sounds/draw4-sound.mp3";
+import gameOverSound from "../../assets/sounds/game-over-sound.mp3";
+
+import { useLocation } from "react-router-dom";
 
 //NUMBER CODES FOR ACTION CARDS
 //SKIP - 404
@@ -28,10 +30,11 @@ const ENDPOINT = "http://localhost:80";
 //const ENDPOINT = 'https://uno-online-multiplayer.herokuapp.com/'
 
 const Game = props => {
-  const data = queryString.parse(props.location.search);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
 
   //initialize socket state
-  const [room, setRoom] = useState(data.roomCode);
+  const [room, setRoom] = useState(searchParams.get("roomCode"));
   const [roomFull, setRoomFull] = useState(false);
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState("");
@@ -1729,7 +1732,7 @@ const Game = props => {
       {!roomFull ? (
         <>
           <div className="topInfo">
-            <img src={require("../assets/logo.png").default} />
+            <img src="/assets/logo.png" />
             <h1 style={{ color: "#000", marginTop: "55px" }}>
               Game Code: {room}
             </h1>
@@ -1797,7 +1800,7 @@ const Game = props => {
                             key={i}
                             className="Card"
                             onClick={() => onCardPlayedHandler(item)}
-                            src={`../assets/card-back.png`}
+                            src={"/assets/card-back.png"}
                           />
                         ))}
                         {turn === "Player 2" && <Spinner />}
@@ -1819,11 +1822,9 @@ const Game = props => {
                         {playedCardsPile && playedCardsPile.length > 0 && (
                           <img
                             className="Card"
-                            src={
-                              require(`../assets/cards-front/${
-                                playedCardsPile[playedCardsPile.length - 1]
-                              }.png`).default
-                            }
+                            src={`/assets/cards-front/${
+                              playedCardsPile[playedCardsPile.length - 1]
+                            }.png`}
                           />
                         )}
                         <button
@@ -1850,10 +1851,7 @@ const Game = props => {
                             key={i}
                             className="Card"
                             onClick={() => onCardPlayedHandler(item)}
-                            src={
-                              require(`../assets/cards-front/${item}.png`)
-                                .default
-                            }
+                            src={`assets/cards-front/${item}.png`}
                           />
                         ))}
                       </div>
@@ -1924,7 +1922,7 @@ const Game = props => {
                             key={i}
                             className="Card"
                             onClick={() => onCardPlayedHandler(item)}
-                            src={require(`../assets/card-back.png`).default}
+                            src={"/assets/card-back.png"}
                           />
                         ))}
                         {turn === "Player 1" && <Spinner />}
@@ -1946,11 +1944,9 @@ const Game = props => {
                         {playedCardsPile && playedCardsPile.length > 0 && (
                           <img
                             className="Card"
-                            src={
-                              require(`../assets/cards-front/${
-                                playedCardsPile[playedCardsPile.length - 1]
-                              }.png`).default
-                            }
+                            src={`/assets/cards-front/${
+                              playedCardsPile[playedCardsPile.length - 1]
+                            }.png`}
                           />
                         )}
                         <button
@@ -1977,10 +1973,7 @@ const Game = props => {
                             key={i}
                             className="Card"
                             onClick={() => onCardPlayedHandler(item)}
-                            src={
-                              require(`../assets/cards-front/${item}.png`)
-                                .default
-                            }
+                            src={`/assets/cards-front/${item}.png`}
                           />
                         ))}
                       </div>

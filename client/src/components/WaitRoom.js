@@ -62,6 +62,10 @@ const WaitRoom = props => {
       // alert("roomData");
       console.log("roomData", data);
       setPlayers(data.users);
+      if (data.users.length === maxPlayers - 1) {
+        console.log("roomData3", data.users.length);
+        setRoomFull(true);
+      }
       updateCookie(user, players);
     });
     socket.on("currentUserData", ({ data }) => {

@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import randomCodeGenerator from "../utils/randomCodeGenerator";
+import { useNavigate } from "react-router-dom";
+import randomCodeGenerator from "../../utils/randomCodeGenerator";
 
 const Homepage = () => {
+  const navigate = useNavigate();
   const [roomCode, setRoomCode] = useState("");
+
+  const redirectToGame = () => {
+    navigate(`/play?roomCode=${roomCode}`);
+  };
+  const redirectToGameCreated = () => {
+    navigate(`/play?roomCode=${randomCodeGenerator(5)}`);
+  };
 
   return (
     <div className="Homepage">
       <div className="homepage-menu">
-        <img src={require("../assets/logo.png").default} width="200px" />
+        <img src={require("../../assets/logo.png").default} width="200px" />
         <div className="homepage-form">
           <div className="homepage-join">
             <input
@@ -17,15 +25,18 @@ const Homepage = () => {
               placeholder="Ingresar un codigo"
               onChange={event => setRoomCode(event.target.value)}
             />
-            <Link to={`/play?roomCode=${roomCode}`}>
-              <button className="game-button green">Unirse a una sala</button>
-            </Link>
+            <button onClick={redirectToGame} className="game-button green">
+              Unirse a una sala
+            </button>
           </div>
           <h1>OR</h1>
           <div className="homepage-create">
-            <Link to={`/play?roomCode=${randomCodeGenerator(5)}`}>
-              <button className="game-button orange">Crear una Sala</button>
-            </Link>
+            <button
+              onClick={redirectToGameCreated}
+              className="game-button orange"
+            >
+              Crear una Sala
+            </button>
           </div>
         </div>
       </div>
