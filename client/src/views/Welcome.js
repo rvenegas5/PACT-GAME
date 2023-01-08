@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import randomCodeGenerator from "../utils/randomCodeGenerator";
-import Button from "@mui/material/Button";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { generateRandomPath } from "../utils/generateRandomPath";
-import Cookies from "js-cookie";
+import { StyledButton } from "../components/StyledButton";
 
 const Welcome = ({ redirectTo }) => {
   const navigate = useNavigate();
-
   const [roomCode, setRoomCode] = useState("");
+  const imagePath = generateRandomPath();
 
   const saveRoomCode = roomCode => {
-    Cookies.set("pact-game.roomCode", roomCode);
+    localStorage.setItem("pact-game.roomCode", roomCode);
   };
 
   const joinRoom = () => {
     if (roomCode === "") return;
     saveRoomCode(roomCode);
     if (redirectTo === "game") navigate(`/game?roomCode=${roomCode}`);
-    else navigate("/waitRoom");
+    else navigate(redirectTo);
   };
 
   const createRoom = () => {
@@ -28,7 +27,7 @@ const Welcome = ({ redirectTo }) => {
     setRoomCode(roomCode);
     saveRoomCode(roomCode);
     if (redirectTo === "game") navigate(`/game?roomCode=${roomCode}`);
-    else navigate("/waitRoom");
+    else navigate(redirectTo);
   };
 
   return (
@@ -38,7 +37,7 @@ const Welcome = ({ redirectTo }) => {
           <img
             className="img-tumbnail w-75"
             alt="Animal aleatorio"
-            src={generateRandomPath()}
+            src={imagePath}
           />
         </div>
         <div className="row w-100 justify-content-center my-2">
@@ -55,18 +54,14 @@ const Welcome = ({ redirectTo }) => {
             </div>
           </div>
           <div className="col-4">
-            <Button onClick={joinRoom} variant="contained">
-              JOIN GAME
-            </Button>
+            <StyledButton onClick={joinRoom} placeholder="JOIN GAME" />
           </div>
         </div>
         <div className="row my-2">
           <h2>or</h2>
         </div>
         <div className="row my-2 w-75">
-          <Button onClick={createRoom} variant="contained">
-            CREATE GAME
-          </Button>
+          <StyledButton onClick={createRoom} placeholder="CREATE GAME" />
         </div>
       </div>
     </div>

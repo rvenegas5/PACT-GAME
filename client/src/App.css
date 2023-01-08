@@ -1,3 +1,11 @@
+#roomCode {
+  resize: none;
+}
+
+/* #roomCodeLabel {
+  text-align: center;
+} */
+
 .App {
   text-align: center;
 }

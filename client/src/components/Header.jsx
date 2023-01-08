@@ -9,13 +9,15 @@ function Header({ room, showButtons }) {
   const [playBBgMusic, { pause }] = useSound(bgMusic, { loop: true });
 
   return (
-    <div className="d-none pt-2 row align-items-center justify-content-around">
+    <div className="w-100 pt-2 row align-items-center justify-content-around">
       <div className="col-2 text-center w-25">
-        <img className="w-100" id="logo" src="assets/logo.png" />
+        <img alt="Logo" className="w-100" id="logo" src="assets/logo.png" />
       </div>
       <div className="col-4 text-center align-items-center">
         <h1>
-          <span className="display-6">{room}</span>
+          <span className="h1">
+            <strong>{room}</strong>
+          </span>
         </h1>
       </div>
 

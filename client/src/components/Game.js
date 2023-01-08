@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 // import PACK_OF_CARDS from "../../utils/packOfCards";
 // import shuffleArray from "../../utils/shuffleArray";
 import io from "socket.io-client";
-import queryString from "query-string";
-import { Spinner } from "./tmp/Spinner";
 import useSound from "use-sound";
 
 import bgMusic from "../assets/sounds/game-bg-music.mp3";
@@ -17,7 +15,6 @@ import gameOverSound from "../assets/sounds/game-over-sound.mp3";
 import Button from "@mui/material/Button";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import { Header } from "./Header";
 //NUMBER CODES FOR ACTION CARDS
 //SKIP - 404
 //DRAW 2 - 252
