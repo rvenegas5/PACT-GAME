@@ -10,7 +10,7 @@ import { Theme } from "./config/Theme";
 import { Header } from "./components/Header";
 import { Welcome } from "./views/Welcome";
 import { NotFound } from "./views/NotFound";
-import { ThemeProvider } from "@mui/system";
+import { ThemeProvider } from "@mui/material/styles";
 
 const App = () => {
   return (
@@ -22,7 +22,15 @@ const App = () => {
             {/* <Route path="/" element={<Homepage />} /> */}
             {/* <Route path="/play" element={<Game />} /> */}
             {/* No usar estos de aca */}
-            <Route path="/" element={<Welcome redirectTo="room" />} />
+            <Route
+              path="/"
+              element={
+                <Welcome
+                  images={{ show: true, image: "trial" }}
+                  redirectTo="room"
+                />
+              }
+            />
             <Route path="/room" element={<Room />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

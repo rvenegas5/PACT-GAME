@@ -9,7 +9,7 @@ function Header({ room, showButtons }) {
   const [playBBgMusic, { pause }] = useSound(bgMusic, { loop: true });
 
   return (
-    <div className="w-100 pt-2 row align-items-center justify-content-around">
+    <div className="h-25 w-100 pt-2 row align-items-center justify-content-around">
       <div className="col-2 text-center w-25">
         <img alt="Logo" className="w-100" id="logo" src="assets/logo.png" />
       </div>

@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import randomCodeGenerator from "../utils/randomCodeGenerator";
+import Button from "@mui/material/Button";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { generateRandomPath } from "../utils/generateRandomPath";
-import { StyledButton } from "../components/StyledButton";
+// import { StyledButton } from "../components/StyledButton";
 
-const Welcome = ({ redirectTo }) => {
+const Welcome = ({ redirectTo, images: { show, image } }) => {
   const navigate = useNavigate();
   const [roomCode, setRoomCode] = useState("");
-  const imagePath = generateRandomPath();
+  const imagePath =
+    image === "trial" ? "/assets/trial.png" : generateRandomPath();
+  const showImages = show;
 
   const saveRoomCode = roomCode => {
     localStorage.setItem("pact-game.roomCode", roomCode);
@@ -34,15 +37,17 @@ const Welcome = ({ redirectTo }) => {
     <div className="welcome w-100 bc-red container text-center w-80 p-3">
       <div className="row align-items-center justify-content-center">
         <div className="w-75 h-50 row text-center align-items-center justify-content-center my-2 p-2">
-          <img
-            className="img-tumbnail w-75"
-            alt="Animal aleatorio"
-            src={imagePath}
-          />
+          {showImages && (
+            <img
+              className="img-tumbnail w-75"
+              alt="Animal aleatorio"
+              src={imagePath}
+            />
+          )}
         </div>
-        <div className="row w-100 justify-content-center my-2">
-          <div className="col-6">
-            <div className="form-floating mb-3">
+        <div className=" container text-center row w-100 justify-content-center align-items-center my-2">
+          <div className="col-6 align-items-center justify-content-center ">
+            <div className="form-floating">
               <input
                 type="text"
                 className="form-control"
@@ -54,14 +59,20 @@ const Welcome = ({ redirectTo }) => {
             </div>
           </div>
           <div className="col-4">
-            <StyledButton onClick={joinRoom} placeholder="JOIN GAME" />
+            <Button onClick={joinRoom} variant="contained">
+              JOIN GAME
+            </Button>
+            {/* <StyledButton onClick={joinRoom} placeholder="JOIN GAME" /> */}
           </div>
         </div>
         <div className="row my-2">
           <h2>or</h2>
         </div>
         <div className="row my-2 w-75">
-          <StyledButton onClick={createRoom} placeholder="CREATE GAME" />
+          <Button onClick={createRoom} variant="contained">
+            CREATE GAME
+          </Button>
+          {/* <StyledButton onClick={createRoom} placeholder="CREATE GAME" /> */}
         </div>
       </div>
     </div>

@@ -25,33 +25,39 @@ io.on("connection", (socket) => {
     if (numberOfUsersInRoom > maxUsers) {
       console.log(">>> its full");
       socket.to(payload.room).emit("roomFull");
+    } else {
+      const { error, newUser } = addUser({
+        id: socket.id,
+        name: playerNames[numberOfUsersInRoom],
+        room: payload.room,
+      });
+
+      console.log("  New user:", newUser);
+
+      if (error) return callback(error);
+
+      socket.join(newUser.room);
+
+      io.to(newUser.room).emit("roomData", {
+        room: newUser.room,
+        users: getUsersInRoom(newUser.room),
+      });
+      socket.emit("currentUserData", { data: newUser });
+      callback();
     }
     if (numberOfUsersInRoom === maxUsers) {
       socket.emit("initGame", { initGame: true });
     }
+  });
 
-    const { error, newUser } = addUser({
-      id: socket.id,
-      name: playerNames[numberOfUsersInRoom],
-      room: payload.room,
-    });
-
-    console.log("  New user:", newUser);
-
-    if (error) return callback(error);
-
-    socket.join(newUser.room);
-
-    io.to(newUser.room).emit("roomData", {
-      room: newUser.room,
-      users: getUsersInRoom(newUser.room),
-    });
-    socket.emit("currentUserData", { data: newUser });
-    callback();
+  socket.join("test", (payload) => {
+    console.log(socket.id)
+    console.log("test", payload);
   });
 
   socket.on("logOut", () => {
     const user = removeUser(socket.id);
+    console.log("logOut", user);
     if (user)
       io.to(user.room).emit("roomData", {
         room: user.room,
