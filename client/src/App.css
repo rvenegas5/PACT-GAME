@@ -2,13 +2,25 @@
   text-align: center;
 }
 
+html {
+  overflow: hidden;
+}
+
 a {
   color: #ffffff;
 }
 
+.welcome {
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 /* Homepage */
 .Homepage {
-  background-image: url("./assets/Landing-Page.png");
+  /* background-image: url("./assets/Landing-Page.png"); */
   background-size: cover;
   margin: 0;
   height: 100vh;
@@ -49,7 +61,7 @@ a {
 }
 
 /* Game.js Background */
-.backgroundColorR {
+/* .backgroundColorR {
   background-image: url("./assets/backgrounds/bgR.png");
 }
 
@@ -63,7 +75,7 @@ a {
 
 .backgroundColorY {
   background-image: url("./assets/backgrounds/bgY.png");
-}
+} */
 
 /* UNO Cards */
 .Card {
