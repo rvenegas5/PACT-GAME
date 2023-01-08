@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import ContentPasteIcon from "@mui/icons-material/ContentPaste";
-import { Loading } from "./Spinner";
+import { Loading } from "./Loading";
+import { Theme } from "../config/Theme";
 
 function WaitRoom({ room, message = "Waiting for others", quit }) {
   const copyCode = () => {
@@ -13,7 +14,10 @@ function WaitRoom({ room, message = "Waiting for others", quit }) {
     document.getElementsByTagName("body")[0].removeChild(tmp);
   };
   return (
-    <div className="container text-center">
+    <div
+      sx={{ backgroundColor: "primary.main" }}
+      className="py-3 container text-center"
+    >
       <div className="row align-items-center my-3">
         <div className="container w-50 text-center">
           <div className="row justify-content-center">

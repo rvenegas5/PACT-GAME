@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { generateRandomPath } from "../utils/generateRandomPath";
+import { Theme } from "../config/Theme";
 // import { StyledButton } from "../components/StyledButton";
 
 const Welcome = ({ redirectTo, images: { show, image } }) => {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { WaitRoom } from "../components/WaitRoom";
+import { WaitRoom2 } from "../components/WaitRoom2";
 import { maxPlayers, ENDPOINT, connectionOptions } from "../config/Constants";
 import io from "socket.io-client";
 // Constants
@@ -58,7 +59,14 @@ const Room = props => {
   const initGame = () => {};
   return (
     <div>
-      {!roomFull && <WaitRoom room={room} quit={quit} />}
+      {!roomFull && (
+        <div className="container text-center">
+          <div className="row align-items-center justify-content-center">
+            {/* <WaitRoom room={room} quit={quit} /> */}
+            <WaitRoom2 room={room} quit={quit} />
+          </div>
+        </div>
+      )}
       {/* Display the game */}
       {roomFull && (
         <div className="container text-center">
