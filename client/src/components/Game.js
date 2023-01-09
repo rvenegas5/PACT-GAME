@@ -50,6 +50,11 @@ const Game = props => {
 
     socket.emit("join", { room: room }, error => {
       if (error) setRoomFull(true);
+
+      if(roomFull){
+        alert("sala llena")
+        console.log("sala llena")
+      }
     });
 
     //cleanup on component unmount
@@ -133,7 +138,12 @@ const Game = props => {
     });
   }, []);
 
+  
   useEffect(() => {
+    socket.on("roomFull",()=>{
+      alert("SALA LLENA")
+      console.log("sala llena")
+    })
     socket.on("initGameState", ({ gameOver, turn }) => {
       setGameOver(gameOver);
       setTurn(turn);
@@ -168,6 +178,7 @@ const Game = props => {
 
   return (
     <div className="container text-center">
+      {roomFull?alert("sala llena"):""}
       {!roomFull ? (
         {/* <Header
           room={room}
