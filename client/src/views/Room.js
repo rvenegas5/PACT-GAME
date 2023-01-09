@@ -60,7 +60,7 @@ const Room = props => {
   return (
     <div>
       {!roomFull && (
-        <div className="container text-center">
+        <div className="w-50 container text-center">
           <div className="row align-items-center justify-content-center">
             {/* <WaitRoom room={room} quit={quit} /> */}
             <WaitRoom2 room={room} quit={quit} />
