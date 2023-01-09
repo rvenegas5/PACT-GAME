@@ -5,6 +5,7 @@ import { WaitRoom } from "../components/WaitRoom";
 import { WaitRoom2 } from "../components/WaitRoom2";
 import { maxPlayers, ENDPOINT, connectionOptions } from "../config/Constants";
 import io from "socket.io-client";
+
 // Constants
 let socket;
 
@@ -35,9 +36,11 @@ const Room = ({ code }) => {
     };
   }, []);
   useEffect(() => {
+    
     socket.on("roomFull", () => {
       setRoomFull(true);
-    });
+       
+    }); 
     socket.on("roomData", data => {
       localStorage.setItem("pact-game.players", JSON.stringify(data.users));
       if (data.users.length === maxPlayers) setRoomFull(true);
@@ -46,11 +49,24 @@ const Room = ({ code }) => {
     socket.on("currentUserData", ({ data }) => {
       localStorage.setItem("pact-game.user", JSON.stringify(data));
       setUser(data);
-    });
+    }); 
   }, []);
-
+ 
   useEffect(() => {
-    if (roomFull) initGame();
+        //Logica para redirigir a la ventana principal porque ya esta la sala llena
+    if (roomFull){
+      initGame();
+      console.log("sala llena , comenzar juego")
+      socket.emit("comenzarTiempo",()=>{
+        console.log("Empezó a contar... ")
+      })
+ 
+      socket.on("tiempoAgotado",()=>{
+        console.log("terminó juego")
+      })
+    }
+
+
   }, [roomFull]);
 
   const quit = () => {
