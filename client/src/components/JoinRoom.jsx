@@ -16,17 +16,17 @@ function JoinRoom({
   const showImages = show;
 
   return (
-    <Container maxWidth="xs">
-      <Card className="welcome">
-        {showImages && (
-          <CardContent className="welcome--image-container">
-            <img
-              className="img-tumbnail w-75"
-              alt="Animal aleatorio"
-              src={imagePath}
-            />
-          </CardContent>
-        )}
+    <Card className="welcome--card">
+      {showImages && (
+        <CardContent className="welcome--image-container">
+          <img
+            className="img-tumbnail w-75"
+            alt="Animal aleatorio"
+            src={imagePath}
+          />
+        </CardContent>
+      )}
+      <CardContent className="welcome--content-container">
         <CardContent className="welcome--room-container">
           <div className="form-floating">
             <input
@@ -42,14 +42,14 @@ function JoinRoom({
             JOIN GAME
           </Button>
         </CardContent>
-        <CardActions className="">
+        <CardActions className="welcome--create-container">
           <Button onClick={createRoom} variant="contained">
             CREATE GAME
           </Button>
           {/* <StyledButton onClick={createRoom} placeholder="CREATE GAME" /> */}
         </CardActions>
-      </Card>
-    </Container>
+      </CardContent>
+    </Card>
   );
 }
 

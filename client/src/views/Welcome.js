@@ -34,7 +34,7 @@ const Welcome = ({ redirectTo, images: { show, image } }) => {
   };
 
   return (
-    <Container maxWidth="xs">
+    <Container className="welcome" maxWidth="xs">
       <JoinRoom
         room={{ createRoom, joinRoom, setRoomCode }}
         images={{ show: true, image: "trial" }}

@@ -1,0 +1,171 @@
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+#roomCode {
+  resize: none;
+}
+
+/* #roomCodeLabel {
+  text-align: center;
+} */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("/assets/Home.png");
+  background-size: cover;
+  text-align: center;
+}
+
+a {
+  color: #ffffff;
+}
+
+#logo {
+  height: auto;
+}
+
+.header {
+  width: 85vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.header--img-container {
+  width: 20vw;
+}
+
+.header--buttons-container {
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+#logo {
+  width: 100%;
+}
+
+.welcome {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  gap: 2rem;
+}
+
+.welcome--card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome--image-container {
+  width: 50vw !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome--image-container img {
+  height: auto;
+}
+
+.welcome--room-container {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 1rem;
+}
+.welcome--create-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  #logo {
+    width: 10vw;
+  }
+  .welcome {
+    width: 50vw;
+  }
+  .welcome--image-container {
+    width: 30vw !important;
+  }
+  .welcome--room-container {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .welcome--card {
+    height: 60vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .welcome--room-container {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #logo {
+    width: 8vw;
+  }
+
+  .welcome {
+    width: 80vw;
+    background-color: #004a87;
+  }
+  .welcome--card {
+    height: 60vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .welcome--image-container {
+    width: 60%;
+  }
+  .welcome--content-container {
+    width: 40%;
+  }
+
+  .welcome--image-container img {
+    width: 100%;
+  }
+
+  .welcome--room-container {
+    justify-content: center;
+    width: 100%;
+  }
+}

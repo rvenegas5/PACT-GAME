@@ -1,4 +1,5 @@
 import "./App.css";
+import "./Game.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -37,27 +38,25 @@ const App = () => {
   return (
     <ThemeProvider theme={Theme}>
       <div className="App">
-        <React.Fragment>
-          <BrowserRouter>
-            <Header room={"Home"}></Header>
-            <Routes>
-              {/* <Route path="/" element={<Homepage />} /> */}
-              {/* <Route path="/play" element={<Game />} /> */}
-              {/* No usar estos de aca */}
-              <Route
-                path="/"
-                element={
-                  <Welcome
-                    images={{ show: true, image: "trial" }}
-                    redirectTo="room"
-                  />
-                }
-              />
-              <Route path="/room" element={<Room code={roomCode} />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </React.Fragment>
+        <BrowserRouter>
+          <Header room={"Home"}></Header>
+          <Routes>
+            {/* <Route path="/" element={<Homepage />} /> */}
+            {/* <Route path="/play" element={<Game />} /> */}
+            {/* No usar estos de aca */}
+            <Route
+              path="/"
+              element={
+                <Welcome
+                  images={{ show: true, image: "trial" }}
+                  redirectTo="room"
+                />
+              }
+            />
+            <Route path="/room" element={<Room code={roomCode} />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </ThemeProvider>
   );
