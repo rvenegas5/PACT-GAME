@@ -11,20 +11,20 @@ const Theme = createTheme({
     primary: {
       main: primary,
       light: primary_light,
-      dark: "",
-      constrastText: ""
+      // dark: "",
+      // constrastText: ""
     },
     secondary: {
       main: "#F2E8D9",
-      light: "",
-      dark: "",
-      constrastText: ""
+      // light: "",
+      // dark: "",
+      // constrastText: ""
     },
     error: {
       main: colors.red.A400,
-      light: "",
-      dark: "",
-      constrastText: ""
+      // light: "",
+      // dark: "",
+      // constrastText: ""
     },
     background: {
       paper: primary_light,

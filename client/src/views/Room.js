@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "@mui/material/Button";
+import { Button, Container } from "@mui/material";
 import { WaitRoom } from "../components/WaitRoom";
 import { WaitRoom2 } from "../components/WaitRoom2";
 import { maxPlayers, ENDPOINT, connectionOptions } from "../config/Constants";
@@ -12,9 +12,9 @@ let socket;
 //   if (user && players) updateCookie(user, players);
 // };
 
-const Room = props => {
+const Room = ({ code }) => {
   const navigate = useNavigate();
-  const room = localStorage.getItem("pact-game.roomCode");
+  const room = code;
   const [roomFull, setRoomFull] = useState(false);
   const [user, setUser] = useState({});
   const [players, setPlayers] = useState([]);
@@ -58,34 +58,34 @@ const Room = props => {
   };
   const initGame = () => {};
   return (
-    <div>
+    <Container className="room" maxWidth="xs">
       {!roomFull && (
-        <div className="w-50 container text-center">
-          <div className="row align-items-center justify-content-center">
+        <Container className="container text-center">
+          <Container className="col align-items-center justify-content-center">
             {/* <WaitRoom room={room} quit={quit} /> */}
             <WaitRoom2 room={room} quit={quit} />
-          </div>
-        </div>
+          </Container>
+        </Container>
       )}
       {/* Display the game */}
       {roomFull && (
-        <div className="container text-center">
-          <div className="row align-items-center">
-            <div className="row">
+        <Container className="container text-center">
+          <Container className="row align-items-center">
+            <Container className="row">
               <h1>
                 THE ROOM IS FULL,
                 <span className="display-6">{user.name}</span>
               </h1>
-            </div>
-            <div className="row">
+            </Container>
+            <Container className="row">
               <Button onClick={quit} variant="contained">
                 QUIT
               </Button>
-            </div>
-          </div>
-        </div>
+            </Container>
+          </Container>
+        </Container>
       )}
-    </div>
+    </Container>
   );
 };
 
