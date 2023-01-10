@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Container } from "@mui/material";
+import { Button, Container, Modal , Box} from "@mui/material";
 import { WaitRoom } from "../components/WaitRoom";
 import { WaitRoom2 } from "../components/WaitRoom2";
 import { maxPlayers, ENDPOINT, connectionOptions } from "../config/Constants";
 import io from "socket.io-client";
+import { knowledge, normal } from "../utils/cards";
+import shuffleArray from "../utils/shuffleArray";
+import ModalCard from "./ModalCard";
+
 
 // Constants
 let socket;
@@ -15,10 +19,16 @@ let socket;
 
 const Room = ({ code }) => {
   const navigate = useNavigate();
+  
   const room = code;
   const [roomFull, setRoomFull] = useState(false);
   const [user, setUser] = useState({});
   const [players, setPlayers] = useState([]);
+  const [normalCards,setNormalCards] = useState(shuffleArray(normal));
+  const [knowledgeCards,setKnowledgeCards] = useState(shuffleArray(knowledge));
+  const [currentCard,setCurrentCard] = useState([])
+  const [openCard,setOpenCard] = useState(false)
+  const [closeCard,setCloseCard] = useState(false)
 
   // Initialize socket
   useEffect(() => {
@@ -72,6 +82,19 @@ const Room = ({ code }) => {
   const quit = () => {
     navigate("/");
   };
+  const pickCard = event => {
+    console.log(normalCards)
+    const carta = normalCards.shift()
+    currentCard.push(
+        carta
+    )
+    console.log(carta.type)
+    setOpenCard(true);
+
+    
+
+  }
+
   const initGame = () => {};
   return (
     <Container className="room" maxWidth="xs">
@@ -85,21 +108,35 @@ const Room = ({ code }) => {
       )}
       {/* Display the game */}
       {roomFull && (
-        <Container className="container text-center">
-          <Container className="row align-items-center">
-            <Container className="row">
-              <h1>
-                THE ROOM IS FULL,
-                <span className="display-6">{user.name}</span>
-              </h1>
-            </Container>
-            <Container className="row">
-              <Button onClick={quit} variant="contained">
-                QUIT
-              </Button>
-            </Container>
-          </Container>
-        </Container>
+
+        
+      <div className='table-game'>
+
+        {normalCards.length>0 &&
+           <>
+            <img src={require('../assets/backCard.png')} alt='normal' onClick={(e) => pickCard(e)} />
+            {/* <img src={require('../assets/backCard2.png')} alt='especial' onClick={(e) => pickCard(e)} /> */}
+            {openCard && <ModalCard setOpenCard={setOpenCard} currentCard={currentCard[0]} setCurrentCard={setCurrentCard} />}
+          </>
+        }
+                   
+      </div>
+        // <Container className="container text-center">
+        //   <Container className="row align-items-center">
+        //     <Container className="row">
+        //       {/* <h1>
+        //         THE ROOM IS FULL,
+        //         <span className="display-6">{user.name}</span>
+        //       </h1> */}
+               
+        //     </Container>
+        //     <Container className="row">
+        //       <Button onClick={quit} variant="contained">
+        //         QUIT
+        //       </Button>
+        //     </Container>
+        //   </Container>
+        // </Container>
       )}
     </Container>
   );

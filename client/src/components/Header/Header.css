@@ -1,0 +1,162 @@
+.Header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+.header-icon{
+    width: 100px;
+    height: 100px;
+    margin: 0.1em;
+    
+}
+
+.header-name{
+    /* Paws and claws trial */
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 65px;
+    font-size: 3vw;
+    line-height: 100px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: white;
+    text-shadow: 2px 2px 2px #0C3483;
+
+}
+
+
+.music-button{
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    text-decoration: none !important;
+    outline: none !important;
+    font-family: 'Carter One', sans-serif;
+    font-size: 10px;
+    line-height: 1.5em;
+    letter-spacing: .1em;
+    text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2, -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2, 0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px  #004a87;
+    border: none;
+    margin: 15px 15px 30px;
+    background: repeating-linear-gradient( 45deg, #3ebbf7, #3ebbf7 5px, #45b1f4 5px, #45b1f4 10px);
+    border-bottom: 3px solid rgba(16, 91, 146, 0.5);
+    border-top: 3px solid rgba(255,255,255,.3);
+    color: #fff !important;
+    border-radius: 8px;
+    padding: 8px 15px 10px;
+    /* box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e, 0 15px 1px 6px rgba(0,0,0,.3); */
+
+    
+  }
+
+  .inputCode{
+    margin-left: 10px;
+    padding: 8px;
+    border: 0;
+    width: 150px;
+    border-radius: 4px;
+  }
+
+  .body {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  
+    
+    
+  }
+  .titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+
+    
+  }
+
+.container-modal{
+  display: 'flex';
+  flex-direction: 'column';
+  justify-content: 'space-evenly';
+  align-items: 'center';
+  top: '50%';
+  left: '50%';
+  transform: 'translate(-50%, -50%)';
+  width: 600;
+  background-color: 'background.paper';
+  border: '2px solid #000';
+  box-shadow: 24;
+  padding: 4;
+
+}
+.footer{
+  text-align: center;
+}
+
+#IngresarBtn{
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  
+}
+
+.cardBackground{
+    background-color: #d4b49c;
+    border-radius: 12px;
+    /* position: relative;
+    display: flex; */
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000;
+    /* box-shadow: 24; */
+    width: fit-content;
+
+}
+.bodyCard{
+  display: flex;
+  flex-direction: row;
+
+
+}
+
+.content{
+  display: flex;
+  align-items: center;
+  word-spacing: 8px;
+  line-height:2;
+  text-align: left;
+  width: 80%;
+}
+
+
+.option{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.option span{
+  margin: 6px;
+}
+
+.options button{
+    border-radius: 50% ;
+    padding: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:0.4vw;
+    height:0.4vw; 
+    font-size: 1vw;
+    font-weight: bolder;
+    outline:none;
+    border: none;
+}

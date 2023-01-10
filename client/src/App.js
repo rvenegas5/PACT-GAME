@@ -1,5 +1,6 @@
 import "./App.css";
 import "./Game.css";
+import "./components/Header/Header.css"
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -8,7 +9,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Room } from "./views/Room";
 import { Theme } from "./config/Theme";
-import { Header } from "./components/Header";
+//import { Header } from "./components/Header";
+import Header from "./components/Header/Header"
 import { Welcome } from "./views/Welcome";
 import { NotFound } from "./views/NotFound";
 import { ThemeProvider } from "@mui/material/styles";
@@ -37,7 +39,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={Theme}>
-      <div className="App">
+      <div className="Homepage">
         <BrowserRouter>
           <Header room={"Home"}></Header>
           <Routes>

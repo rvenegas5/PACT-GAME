@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import useSound from "use-sound";
 import bgMusic from "../assets/sounds/game-bg-music.mp3";
 
+
 function Header({ room, showButtons }) {
   const [isSoundMuted, setSoundMuted] = useState(false);
   const [isMusicMuted, setMusicMuted] = useState(true);
@@ -13,7 +14,7 @@ function Header({ room, showButtons }) {
     <Container>
       <div className="header">
         <div className="header--img-container">
-          <img alt="Logo" id="logo" src="assets/logo.png" />
+          <img className='header-icon' src={require('../assets/logo2.png')} alt='logo'/>
         </div>
         <div className="header--room-container">
           <h1>

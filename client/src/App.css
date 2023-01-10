@@ -1,10 +1,31 @@
 
 /* Homepage */
 .Homepage {
-  background-image: url("./assets/Landing-Page.png");
+  background-image: url("./assets/Home.png");
   background-size: cover;
   margin: 0;
   height: 100vh;
+}
+
+.homepage-button{
+  background-color: white;
+  border-radius: 3px;
+  border: 2px solid white;
+  color: #A46D51;
+  font-size: large;
+  margin: 0.5em 2em;
+  padding: 0.25em 2em;
+  height: 50px;
+  width: 20em;
+  
+  
+}
+
+
+
+.homepage-button:hover {
+  top:2px;
+  box-shadow: 0 4px 0 #b76113, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #75421f, 0 10px 0 5px #8a542b, 0 13px 0 5px #593116, 0 13px 1px 6px rgba(0,0,0,.3);
 }
 
 .homepage-menu {
@@ -14,8 +35,9 @@
 
 .homepage-form {
   display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
 
 .homepage-form > h1 {
