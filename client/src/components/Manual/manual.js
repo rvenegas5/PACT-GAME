@@ -11,7 +11,7 @@ function Manual({setOpenTutorial}){
         <Modal open={setOpenTutorial} onClose={handleCloseManual}>
             <Box sx={style}>
                 <div className='d-flex flex-row '>
-                    <div className="d-flex flex-column justify-content-around">
+                    <div className="d-flex flex-column justify-content-around ml-2 mr-2">
                         <img src={require('../../assets/logo.png')} alt='logo2' className='img-fluid'/>
                         <h4> Objetivos del Juego</h4>
                         <span>

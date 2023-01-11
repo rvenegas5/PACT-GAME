@@ -114,7 +114,7 @@ const Room = ({ code }) => {
 
         {normalCards.length>0 &&
            <>
-            <img src={require('../assets/backCard.png')} alt='normal' onClick={(e) => pickCard(e)} />
+            <img className={'back-card'}src={require('../assets/backCard.png')} alt='normal' onClick={(e) => pickCard(e)} />
             {/* <img src={require('../assets/backCard2.png')} alt='especial' onClick={(e) => pickCard(e)} /> */}
             {openCard && <ModalCard setOpenCard={setOpenCard} currentCard={currentCard[0]} setCurrentCard={setCurrentCard} />}
           </>

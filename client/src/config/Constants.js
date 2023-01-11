@@ -1,4 +1,4 @@
-const maxPlayers = 1;
+const maxPlayers = 4;
 const ENDPOINT = "http://localhost:80";
 const connectionOptions = {
   forceNew: true,

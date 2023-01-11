@@ -397,6 +397,133 @@ const normal = [
     type: "especial",
     options: {},
   },
+  {
+    content:
+      "¿Cuál de las siguientes características no es propia de una mantarraya?",
+    type: "knowledge",
+    options: {
+      a: "Su cuerpo está compuesto totalmente por cartílago",
+      b: "Contienen un aguijón en su cola que puede atravesar a un humano",
+      c: "Se consideran animales solitarios",
+      d: "Poseen el cerebro más grande de todos los peces",
+    },
+    pet: "stingray",
+  },
+  {
+    content: "Los gatos no pueden percibir el siguiente sabor",
+    type: "knowledge",
+    options: {
+      a: "Dulce",
+      b: "Agrio",
+      c: "Salado",
+      d: "Todos los anteriores",
+    },
+    pet: "cat",
+  },
+  {
+    content: "¿Cuántos años vive aproximadamente un conejo?",
+    type: "knowledge",
+    options: {
+      a: "18-21 años",
+      b: "12-18 años",
+      c: "9-12 años",
+      d: "6-9 años",
+    },
+    pet: "rabbit",
+  },
+  {
+    content: "¿Cuán alto pueden saltar las ratas?",
+    type: "knowledge",
+    options: {
+      a: "Hasta 30 centímetros",
+      b: "Hasta 15 centímetros",
+      c: "Hasta 22 centímetros",
+      d: "No pueden saltar",
+    },
+    pet: "rabbit",
+  },
+  {
+    content:
+      "¿Cuál de las siguientes opciones acerca de los peces payasos es verdadera?",
+    type: "knowledge",
+    options: {
+      a: "Existen alrededor de 20 especies conocidas de peces payasos",
+      b: "Todos los de esta especie nacen siendo machos",
+      c: "Son reconocidos por ser excelentes nadadores",
+      d: "Todos los anteriores"
+    },
+    pet: "clownfish",
+  },
+  {
+    content:
+      "¿Cuál de los siguientes animales solo puede ver en blanco y negro?",
+    type: "knowledge",
+    options: {
+      a: "Hurón",
+      b: "Gato",
+      c: "Perico",
+      d: "Hamster",
+    },
+    pet: "all",
+  },
+  {
+    content:
+      "Los gatos ronronean a una frecuencia entre 25 y 150 hercios. Estudios han demostrado que las vibraciones a estas velocidades pueden...",
+    type: "knowledge",
+    options: {
+      a: "Adormecer a los ratones",
+      b: "Reparar la densidad ósea y reducir la inflamación",
+      c: "Facilitar su digestión",
+      d: "Todas las anteriores"
+    },
+    pet: "cat",
+  },
+  {
+    content:
+      "Las orejas ayudan al gato a oír direccionalmente, esto les permite...",
+    type: "knowledge",
+    options: {
+      a: "Moverlas de manera independiente",
+      b: "Escuchar mejor cuando hace frío",
+      c: "Desorientar a sus depredadores",
+      d: "Orientarse en el espacio"
+    },
+    pet: "cat",
+  },
+  {
+    content: "¿Por qué sacan tanto la lengua los perros? ",
+    type: "knowledge",
+    options: {
+      a: "Para mostrar su júbilo o carácter afable",
+      b: "Es un gesto inconsciente como respirar",
+      c: "Para regular su temperatura corporal",
+      d: "Para enfriar su cuerpo",
+    },
+    pet: "dog",
+  },
+  {
+    content: "Los hamsters pueden comer:",
+    type: "knowledge",
+    options: {
+      a: "Fruta, son herbívoros",
+      b: "Carne, son carnívoros",
+      c: "De todo, son omnívoros",
+      d: "Nada, no necesitan comer",
+    },
+    pet: "hamster",
+  },
+  {
+    content:
+      "De la raza o el tamaño no solo depende la edad de un perro, si no también uno de los sentidos más importantes para nuestros amigos los canes. En este sentido, ¿Sabes cuál es el perro con el mejor olfato de todos?",
+    type: "knowledge",
+    options: {
+      a: "El perro de San Umberto, o bloodhound",
+      b: "El basset hound",
+      c: "El pastor belga malinois",
+      d: "El perro de agua español",
+    },
+    pet: "dog",
+  },
 ];
 const knowledge = [
   {
