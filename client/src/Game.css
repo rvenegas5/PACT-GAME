@@ -3,7 +3,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
 }
 
 #root {
@@ -13,6 +12,24 @@
 
 #roomCode {
   resize: none;
+  min-width: 6rem;
+  text-align: center;
+}
+
+.waitRoom-container {
+  width: 30vw;
+}
+
+.justify-width {
+  width: 100% !important;
+}
+
+.roomCode-container {
+  gap: 0.5rem;
+}
+
+.more-margin {
+  margin: 0px 0px 10px 0px;
 }
 
 /* #roomCodeLabel {
@@ -173,28 +190,23 @@ a {
   }
 } */
 
-.table-game{
+.table-game {
   margin-top: 7px;
-  background-image: url('./assets/table.jpg');
+  background-image: url("./assets/table.jpg");
   display: flex;
   flex-direction: row;
   align-content: center;
   justify-content: space-around;
   width: 100%;
-  border-radius: 8px ;
-
-
+  border-radius: 8px;
 }
 
-.table-game img{
+.table-game img {
   margin: 40px;
   width: 110px;
   height: 190px;
-
-
 }
 
-.back-card:hover{
+.back-card:hover {
   cursor: pointer;
-
 }

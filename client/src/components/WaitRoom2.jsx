@@ -14,15 +14,15 @@ function WaitRoom2({ room, message = "Waiting for others", quit }) {
     document.getElementsByTagName("body")[0].removeChild(tmp);
   };
   return (
-    <Card>
+    <Card className="waitRoom-container justify-width">
       <CardContent>
         <div className="row align-items-center my-3">
-          <div className="container w-50 text-center">
+          <div className="container w-50 text-center justify-width">
             <div className="row justify-content-center">
               <h1 class="display-6">{message}</h1>
               <Loading />
             </div>
-            <div className="row align-items-center justify-content-center">
+            <div className="roomCode-container row align-items-center justify-content-center">
               <div class="form-floating col-8 my-3">
                 <input
                   id="roomCode"
@@ -50,7 +50,7 @@ function WaitRoom2({ room, message = "Waiting for others", quit }) {
         </div>
       </CardContent>
       <CardActions>
-        <div className="container text-center w-50">
+        <div className="container text-center w-50 more-margin">
           <div className="row justify-content-center align-items-center">
             <Button onClick={quit} variant="contained">
               QUIT
