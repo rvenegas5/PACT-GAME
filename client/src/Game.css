@@ -191,7 +191,7 @@ a {
 } */
 
 .table-game {
-  margin-top: 7px;
+  margin-top: 25%;
   background-image: url("./assets/table.jpg");
   display: flex;
   flex-direction: row;
