@@ -210,3 +210,12 @@ a {
 .back-card:hover {
   cursor: pointer;
 }
+
+.message-modal{
+  font-size:20px;
+  font-family:'Quicksand';
+  text-align: center;
+  font-weight: bold;
+
+}
+

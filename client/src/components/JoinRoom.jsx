@@ -49,11 +49,11 @@ function JoinRoom({
           
           <div className="body">
             
-            <p style={{ color:'black',fontSize: '20px' ,fontFamily:'Quicksand'}}>Ingrese el código de sala:</p>
+            <p className="message-modal">Ingrese el código de sala:</p>
             <input className='inputCode' type='text' placeholder='Código de Sala' onChange={(event) => setRoomCode(event.target.value)} />
           </div>
           <div className="body">
-            <p style={{ color:'black',fontSize: '20px' ,fontFamily:'Quicksand'}}>Nombre de Usuario:</p>
+            <p className="message-modal">Nombre de Usuario:</p>
            <input className='inputCode' type='text' placeholder='username' onChange={(event) => console.log(event.target.value)} />
           </div>
         <div className="footer">

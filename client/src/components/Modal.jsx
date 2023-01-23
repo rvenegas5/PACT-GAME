@@ -10,7 +10,7 @@ const ModalWait = ({openWait})=> {
         <Modal open={openWait}>
             <Box sx={style}>
 
-                <span style={{fontSize:"20px",fontFamily:'Quicksand'}}>Espere mientras el Jurado delibera</span>
+                <span className="message-modal">Espere mientras el Jurado delibera</span>
                 <br />
                 <div className="d-flex justify-content-center m-2">
                     <Loading></Loading>

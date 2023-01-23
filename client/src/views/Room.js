@@ -5,7 +5,7 @@ import { WaitRoom } from "../components/WaitRoom";
 import { WaitRoom2 } from "../components/WaitRoom2";
 import { maxPlayers, ENDPOINT, connectionOptions } from "../config/Constants";
 import io from "socket.io-client";
-import { knowledge, normal } from "../utils/cards";
+import { all } from "../utils/cards";
 import shuffleArray from "../utils/shuffleArray";
 import ModalCard from "./ModalCard";
 
@@ -23,8 +23,7 @@ const Room = ({ code }) => {
   const [roomFull, setRoomFull] = useState(false);
   const [user, setUser] = useState({});
   const [players, setPlayers] = useState([]);
-  const [normalCards, setNormalCards] = useState(shuffleArray(normal));
-  const [knowledgeCards, setKnowledgeCards] = useState(shuffleArray(knowledge));
+  const [normalCards, setNormalCards] = useState(shuffleArray(all));
   const [currentCard, setCurrentCard] = useState([]);
   const [openCard, setOpenCard] = useState(false);
   const [closeCard, setCloseCard] = useState(false);

@@ -30,6 +30,7 @@ const normal = [
       d: "Ligarla y darla en adopción",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -42,6 +43,7 @@ const normal = [
       d: "Ligar al gato y darlo en adopción",
     },
     pet: "cat",
+    points: 1,
   },
   {
     content:
@@ -52,6 +54,7 @@ const normal = [
       b: "Convencer a tus compañeros de trabajo para ver quién la puede adoptar",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -64,6 +67,7 @@ const normal = [
       d: "Llamar a la policía para que se proceda con el arresto del hombre",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -76,6 +80,7 @@ const normal = [
       d: "Ligar al perro y darlo en adopción",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -88,6 +93,7 @@ const normal = [
       d: "Rescatar al perro, ligarlo y darlo en adopción",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -98,6 +104,7 @@ const normal = [
       b: "Hablar con los padres del infante acerca de los maltratos que está sufriendo la mascota cuando no lo supervisan",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -110,6 +117,7 @@ const normal = [
       d: "Romper el vidrio, rescatar al perro, ligarlo y darlo en adopción",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -122,6 +130,7 @@ const normal = [
       d: "Rescato el primer perro bonito de la calle que encuentre",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -134,6 +143,7 @@ const normal = [
       d: "Lo llevas contigo",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -146,6 +156,7 @@ const normal = [
       d: "Se ve mucho el maltrato animal en los circos",
     },
     pet: "cat",
+    points: 1,
   },
   {
     content:
@@ -156,6 +167,7 @@ const normal = [
       b: "Lo dejo pasar, solo quedan unas cuantas pruebas más por realizar y es por un bien mayor. Además, es probable que la situación no se vuelva a repetir",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -168,6 +180,7 @@ const normal = [
       d: "Los dejas ahí, ya que no tienes tiempo para cuidarlos",
     },
     pet: "cat",
+    points: 1,
   },
   {
     content:
@@ -180,6 +193,7 @@ const normal = [
       d: "Los dejas ahí, ya que no tienes tiempo para cuidarlos",
     },
     pet: "cat",
+    points: 1,
   },
   {
     content:
@@ -192,6 +206,7 @@ const normal = [
       d: "Difundo y apoyo en redes sociales",
     },
     pet: "foca",
+    points: 1,
   },
   {
     content:
@@ -202,6 +217,7 @@ const normal = [
       b: "Sacar al gato de la funda y llevarlos a un centro de rescate animal para que le encuentre un hogar",
     },
     pet: "cat",
+    points: 1,
   },
   {
     content:
@@ -214,6 +230,7 @@ const normal = [
       d: "La acaricias y la llevas a tu casa",
     },
     pet: "cat",
+    points: 1,
   },
   {
     content:
@@ -226,6 +243,7 @@ const normal = [
       d: "Llamas a algún experto en animales para que te ayude a decidir qué hacer",
     },
     pet: "birds",
+    points: 1,
   },
   {
     content:
@@ -238,6 +256,7 @@ const normal = [
       d: "Atraparlos y entregarlos a tu vecino",
     },
     pet: "parrot",
+    points: 1,
   },
   {
     content:
@@ -250,6 +269,7 @@ const normal = [
       d: "No hacer nada, ya que no es tu problema",
     },
     pet: "monkey",
+    points: 1,
   },
   {
     content:
@@ -262,6 +282,7 @@ const normal = [
       d: "No haces nada, ya que no es tu problema",
     },
     pet: "monkey",
+    points: 1,
   },
   {
     content:
@@ -274,6 +295,7 @@ const normal = [
       d: "Continuar tu camino, ya que estas cosas pasan",
     },
     pet: "cat",
+    points: 1,
   },
   {
     content:
@@ -286,6 +308,7 @@ const normal = [
       d: "No, ya que, el pez se acostumbró a vivir en la pecera y no sobreviviría en el mar",
     },
     pet: "fish",
+    points: 1,
   },
   {
     content:
@@ -298,6 +321,7 @@ const normal = [
       d: "Llamar a la policía para que se haga cargo del gatito",
     },
     pet: "cat",
+    points: 1,
   },
   {
     content:
@@ -310,6 +334,7 @@ const normal = [
       d: "No hacer nada, ya que no es tu problema",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -322,6 +347,7 @@ const normal = [
       d: "No hacer nada, ya que no es tu problema",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -334,6 +360,7 @@ const normal = [
       d: "No hacer nada, ya que no es tu problema",
     },
     pet: "dog",
+    points: 1,
   },
   {
     content:
@@ -346,185 +373,102 @@ const normal = [
       d: "No hacer nada, ya que no es tu problema",
     },
     pet: "dog",
-  },
-  {content: "/mas1.jpg",
-    type: "especial",
-    options: {},
-    pet:{},
-  },
-  {content: "/mas3.jpg",
-    type: "especial",
-    options: {},
-  },
-  {content: "/menos1.jpg",
-    type: "especial",
-    options: {},
-  },
-  {content: "/menos3.jpg",
-    type: "especial",
-    options: {},
-  },
-  {content: "/pierde.jpg",
-    type: "especial",
-    options: {},
-  },
-  {content: "/reverse.jpg",
-    type: "especial",
-    options: {},
-  },
-  {content: "/mas1.jpg",
-    type: "especial",
-    options: {},
-    pet:{},
-  },
-  {content: "/mas3.jpg",
-    type: "especial",
-    options: {},
-  },
-  {content: "/menos1.jpg",
-    type: "especial",
-    options: {},
-  },
-  {content: "/menos3.jpg",
-    type: "especial",
-    options: {},
-  },
-  {content: "/pierde.jpg",
-    type: "especial",
-    options: {},
-  },
-  {content: "/reverse.jpg",
-    type: "especial",
-    options: {},
-  },
-  {
-    content:
-      "¿Cuál de las siguientes características no es propia de una mantarraya?",
-    type: "knowledge",
-    options: {
-      a: "Su cuerpo está compuesto totalmente por cartílago",
-      b: "Contienen un aguijón en su cola que puede atravesar a un humano",
-      c: "Se consideran animales solitarios",
-      d: "Poseen el cerebro más grande de todos los peces",
-    },
-    pet: "stingray",
-  },
-  {
-    content: "Los gatos no pueden percibir el siguiente sabor",
-    type: "knowledge",
-    options: {
-      a: "Dulce",
-      b: "Agrio",
-      c: "Salado",
-      d: "Todos los anteriores",
-    },
-    pet: "cat",
-  },
-  {
-    content: "¿Cuántos años vive aproximadamente un conejo?",
-    type: "knowledge",
-    options: {
-      a: "18-21 años",
-      b: "12-18 años",
-      c: "9-12 años",
-      d: "6-9 años",
-    },
-    pet: "rabbit",
-  },
-  {
-    content: "¿Cuán alto pueden saltar las ratas?",
-    type: "knowledge",
-    options: {
-      a: "Hasta 30 centímetros",
-      b: "Hasta 15 centímetros",
-      c: "Hasta 22 centímetros",
-      d: "No pueden saltar",
-    },
-    pet: "rabbit",
-  },
-  {
-    content:
-      "¿Cuál de las siguientes opciones acerca de los peces payasos es verdadera?",
-    type: "knowledge",
-    options: {
-      a: "Existen alrededor de 20 especies conocidas de peces payasos",
-      b: "Todos los de esta especie nacen siendo machos",
-      c: "Son reconocidos por ser excelentes nadadores",
-      d: "Todos los anteriores"
-    },
-    pet: "clownfish",
-  },
-  {
-    content:
-      "¿Cuál de los siguientes animales solo puede ver en blanco y negro?",
-    type: "knowledge",
-    options: {
-      a: "Hurón",
-      b: "Gato",
-      c: "Perico",
-      d: "Hamster",
-    },
-    pet: "all",
-  },
-  {
-    content:
-      "Los gatos ronronean a una frecuencia entre 25 y 150 hercios. Estudios han demostrado que las vibraciones a estas velocidades pueden...",
-    type: "knowledge",
-    options: {
-      a: "Adormecer a los ratones",
-      b: "Reparar la densidad ósea y reducir la inflamación",
-      c: "Facilitar su digestión",
-      d: "Todas las anteriores"
-    },
-    pet: "cat",
-  },
-  {
-    content:
-      "Las orejas ayudan al gato a oír direccionalmente, esto les permite...",
-    type: "knowledge",
-    options: {
-      a: "Moverlas de manera independiente",
-      b: "Escuchar mejor cuando hace frío",
-      c: "Desorientar a sus depredadores",
-      d: "Orientarse en el espacio"
-    },
-    pet: "cat",
-  },
-  {
-    content: "¿Por qué sacan tanto la lengua los perros? ",
-    type: "knowledge",
-    options: {
-      a: "Para mostrar su júbilo o carácter afable",
-      b: "Es un gesto inconsciente como respirar",
-      c: "Para regular su temperatura corporal",
-      d: "Para enfriar su cuerpo",
-    },
-    pet: "dog",
-  },
-  {
-    content: "Los hamsters pueden comer:",
-    type: "knowledge",
-    options: {
-      a: "Fruta, son herbívoros",
-      b: "Carne, son carnívoros",
-      c: "De todo, son omnívoros",
-      d: "Nada, no necesitan comer",
-    },
-    pet: "hamster",
-  },
-  {
-    content:
-      "De la raza o el tamaño no solo depende la edad de un perro, si no también uno de los sentidos más importantes para nuestros amigos los canes. En este sentido, ¿Sabes cuál es el perro con el mejor olfato de todos?",
-    type: "knowledge",
-    options: {
-      a: "El perro de San Umberto, o bloodhound",
-      b: "El basset hound",
-      c: "El pastor belga malinois",
-      d: "El perro de agua español",
-    },
-    pet: "dog",
-  },
+    points: 1,
+  },  
 ];
+
+const specials = [
+  {content: "/mas1.jpg",
+    type: "especial",
+    options: {},
+    pet:{},
+    points: 1,
+  },
+  {content: "/mas3.jpg",
+    type: "especial",
+    options: {},
+    points: 3,
+  },
+  {content: "/menos1.jpg",
+    type: "especial",
+    options: {},
+    points: -1,
+  },
+  {content: "/menos3.jpg",
+    type: "especial",
+    options: {},
+    points: -3,
+  },
+
+  {content: "/pierde.jpg",
+    type: "especial",
+    options: {},
+  },
+  {content: "/reverse.jpg",
+    type: "especial",
+    options: {},
+  },
+  {content: "/mas1.jpg",
+    type: "especial",
+    options: {},
+    pet:{},
+    points: +1,
+  },
+  {content: "/mas3.jpg",
+    type: "especial",
+    options: {},
+    points: +3,
+  },
+  {content: "/menos1.jpg",
+    type: "especial",
+    options: {},
+    points: -1,
+  },
+  {content: "/menos3.jpg",
+    type: "especial",
+    options: {},
+    points: -3,
+  },
+  {content: "/pierde.jpg",
+    type: "especial",
+    options: {},
+  },
+  {content: "/reverse.jpg",
+    type: "especial",
+    options: {},
+  },
+  {content: "/mas1.jpg",
+    type: "especial",
+    options: {},
+    pet:{},
+    points: 1,
+  },
+  {content: "/mas3.jpg",
+    type: "especial",
+    options: {},
+    points: 3,
+  },
+  {content: "/menos1.jpg",
+    type: "especial",
+    options: {},
+    points: -1,
+  },
+  {content: "/menos3.jpg",
+    type: "especial",
+    options: {},
+    points: -3,
+  },
+
+  {content: "/pierde.jpg",
+    type: "especial",
+    options: {},
+  },
+  {content: "/reverse.jpg",
+    type: "especial",
+    options: {},
+  },
+]
+
 const knowledge = [
   {
     content:
@@ -537,6 +481,8 @@ const knowledge = [
       d: "Poseen el cerebro más grande de todos los peces",
     },
     pet: "stingray",
+    points: 2,
+    answer: "b",
   },
   {
     content: "Los gatos no pueden percibir el siguiente sabor",
@@ -548,6 +494,8 @@ const knowledge = [
       d: "Todos los anteriores",
     },
     pet: "cat",
+    points: 2,
+    answer: "a",
   },
   {
     content: "¿Cuántos años vive aproximadamente un conejo?",
@@ -559,6 +507,8 @@ const knowledge = [
       d: "6-9 años",
     },
     pet: "rabbit",
+    points: 2,
+    answer: "c",
   },
   {
     content: "¿Cuán alto pueden saltar las ratas?",
@@ -570,6 +520,8 @@ const knowledge = [
       d: "No pueden saltar",
     },
     pet: "rabbit",
+    points: 2,
+    answer: "a",
   },
   {
     content:
@@ -582,6 +534,8 @@ const knowledge = [
       d: "Todos los anteriores"
     },
     pet: "clownfish",
+    points: 2,
+    answer: "b",
   },
   {
     content:
@@ -594,6 +548,8 @@ const knowledge = [
       d: "Hamster",
     },
     pet: "all",
+    points: 2,
+    answer: "d",
   },
   {
     content:
@@ -606,6 +562,8 @@ const knowledge = [
       d: "Todas las anteriores"
     },
     pet: "cat",
+    points: 2,
+    answer: "b",
   },
   {
     content:
@@ -618,6 +576,8 @@ const knowledge = [
       d: "Orientarse en el espacio"
     },
     pet: "cat",
+    points: 2,
+    answer: "a",
   },
   {
     content: "¿Por qué sacan tanto la lengua los perros? ",
@@ -629,6 +589,8 @@ const knowledge = [
       d: "Para enfriar su cuerpo",
     },
     pet: "dog",
+    points: 2,
+    answer: "c",
   },
   {
     content: "Los hamsters pueden comer:",
@@ -640,6 +602,8 @@ const knowledge = [
       d: "Nada, no necesitan comer",
     },
     pet: "hamster",
+    points: 2,
+    answer: "c",
   },
   {
     content:
@@ -652,7 +616,11 @@ const knowledge = [
       d: "El perro de agua español",
     },
     pet: "dog",
+    points: 2,
+    answer: "a",
   },
 ];
+const all = [...normal, ...knowledge,...specials]
 
-export { normal, knowledge };
+export { normal, knowledge, all };
+
