@@ -10,12 +10,13 @@
   background-color: white;
   border-radius: 3px;
   border: 2px solid white;
-  color: #a46d51;
+  color: #75421f;
   font-size: large;
   margin: 0.5em 2em;
   padding: 0.25em 2em;
   height: 50px;
   width: 20em;
+  transition: 0.3s ease all;
 }
 
 .homepage-button:hover {
@@ -452,4 +453,39 @@
 .msg-receive:hover,
 .msg-send:hover {
   opacity: 0.9;
+}
+
+.avatar-img {
+  width: 170px;
+  height: 170px;
+}
+
+.player-name {
+  font-weight: bold;
+  color: #fff;
+}
+
+.player-top-left {
+  position: fixed;
+  top: 13%;
+  left: 12%;
+  width: auto;
+}
+.player-top-right {
+  position: fixed;
+  top: 13%;
+  right: 12%;
+  width: auto;
+}
+.player-bottom-left {
+  position: fixed;
+  bottom: 13%;
+  left: 12%;
+  width: auto;
+}
+.player-bottom-right {
+  position: fixed;
+  bottom: 13%;
+  right: 12%;
+  width: auto;
 }

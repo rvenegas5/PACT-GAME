@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { generateRandomPath } from "../utils/generateRandomPath";
 import { style } from "../config/Constants";
 
-function JoinRoom({
+function CreateRoom({
   room: { setRoomCode, joinRoom, createRoom },
   images: { show, image }
 }) {
@@ -27,8 +27,8 @@ function JoinRoom({
 
   return (
     <div>
-      <button className="homepage-button unirse" onClick={handleOpen}>
-        Unirse a Sala
+      <button className="homepage-button" onClick={createRoom}>
+        Crear una Sala
       </button>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
@@ -69,42 +69,7 @@ function JoinRoom({
         </Box>
       </Modal>
     </div>
-
-    // <Card className="welcome--card">
-    //   {showImages && (
-    //     <CardContent className="welcome--image-container">
-    //       <img
-    //         className="img-tumbnail w-5"
-    //         alt="Animal aleatorio"
-    //         src={imagePath}
-    //       />
-    //     </CardContent>
-    //   )}
-    //   <CardContent className="welcome--content-container">
-    //     <CardContent className="welcome--room-container">
-    //       <div className="form-floating">
-    //         <input
-    //           type="text"
-    //           className="form-control"
-    //           id="floatingInput"
-    //           placeholder="123456"
-    //           onChange={event => setRoomCode(event.target.value)}
-    //         />
-    //         <label for="floatingInput">Room code</label>
-    //       </div>
-    //       <Button onClick={joinRoom} variant="contained">
-    //         JOIN GAME
-    //       </Button>
-    //     </CardContent>
-    //     <CardActions className="welcome--create-container">
-    //       <Button onClick={createRoom} variant="contained">
-    //         CREATE GAME
-    //       </Button>
-    //       {/* <StyledButton onClick={createRoom} placeholder="CREATE GAME" /> */}
-    //     </CardActions>
-    //   </CardContent>
-    // </Card>
   );
 }
 
-export { JoinRoom };
+export { CreateRoom };

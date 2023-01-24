@@ -5,7 +5,7 @@ import { WaitRoom } from "../components/WaitRoom";
 import { WaitRoom2 } from "../components/WaitRoom2";
 import { maxPlayers, ENDPOINT, connectionOptions } from "../config/Constants";
 import io from "socket.io-client";
-import { knowledge, normal } from "../utils/cards";
+import { all } from "../utils/cards";
 import shuffleArray from "../utils/shuffleArray";
 import ModalCard from "./ModalCard";
 
@@ -23,8 +23,7 @@ const Room = ({ code }) => {
   const [roomFull, setRoomFull] = useState(false);
   const [user, setUser] = useState({});
   const [players, setPlayers] = useState([]);
-  const [normalCards, setNormalCards] = useState(shuffleArray(normal));
-  const [knowledgeCards, setKnowledgeCards] = useState(shuffleArray(knowledge));
+  const [normalCards, setNormalCards] = useState(shuffleArray(all));
   const [currentCard, setCurrentCard] = useState([]);
   const [openCard, setOpenCard] = useState(false);
   const [closeCard, setCloseCard] = useState(false);
@@ -99,26 +98,73 @@ const Room = ({ code }) => {
       )}
       {/* Display the game */}
       {roomFull && (
-        <div className="table-game">
-          {normalCards.length > 0 && (
-            <>
+        <div>
+          <div className="player-top-left">
+            <div>
               <img
-                className={"back-card"}
-                src={require("../assets/backCard.png")}
-                alt="normal"
-                onClick={e => pickCard(e)}
+                src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairCurly&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=BeardMedium&facialHairColor=Auburn&clotheType=ShirtCrewNeck&clotheColor=Pink&eyeType=Default&eyebrowType=SadConcerned&mouthType=Grimace&skinColor=Light"
+                className="avatar-img"
               />
-              {/* <img src={require('../assets/backCard2.png')} alt='especial' onClick={(e) => pickCard(e)} /> */}
-              {openCard && (
-                <ModalCard
-                  setOpenCard={setOpenCard}
-                  currentCard={currentCard[0]}
-                  setCurrentCard={setCurrentCard}
+            </div>
+            <div>
+              <span className="player-name">Player 1</span>
+            </div>
+          </div>
+          <div className="player-top-right">
+            <div>
+              <img
+                src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairTheCaesarSidePart&accessoriesType=Prescription02&hairColor=Auburn&facialHairType=BeardMedium&facialHairColor=Auburn&clotheType=BlazerSweater&clotheColor=Heather&eyeType=Squint&eyebrowType=RaisedExcited&mouthType=Tongue&skinColor=Pale"
+                className="avatar-img"
+              />
+            </div>
+            <div>
+              <span className="player-name">Player 2</span>
+            </div>
+          </div>
+          <div className="player-bottom-left">
+            <div>
+              <img
+                src="https://avataaars.io/?avatarStyle=Circle&topType=Eyepatch&accessoriesType=Blank&hairColor=Brown&facialHairType=BeardMajestic&facialHairColor=Black&clotheType=BlazerShirt&clotheColor=PastelBlue&eyeType=Default&eyebrowType=RaisedExcitedNatural&mouthType=Sad&skinColor=Yellow"
+                className="avatar-img"
+              />
+            </div>
+            <div>
+              <span className="player-name">Player 3</span>
+            </div>
+          </div>
+          <div className="player-bottom-right">
+            <div>
+              <img
+                src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=Blue&facialHairType=MoustacheFancy&facialHairColor=Red&clotheType=Hoodie&clotheColor=PastelRed&eyeType=EyeRoll&eyebrowType=UpDownNatural&mouthType=Default&skinColor=Pale"
+                className="avatar-img"
+              />
+            </div>
+            <div>
+              <span className="player-name">Player 4</span>
+            </div>
+          </div>
+          <div className="table-game">
+            {normalCards.length > 0 && (
+              <>
+                <img
+                  className={"back-card"}
+                  src={require("../assets/backCard.png")}
+                  alt="normal"
+                  onClick={e => pickCard(e)}
                 />
-              )}
-            </>
-          )}
+                {/* <img src={require('../assets/backCard2.png')} alt='especial' onClick={(e) => pickCard(e)} /> */}
+                {openCard && (
+                  <ModalCard
+                    setOpenCard={setOpenCard}
+                    currentCard={currentCard[0]}
+                    setCurrentCard={setCurrentCard}
+                  />
+                )}
+              </>
+            )}
+          </div>
         </div>
+
         // <Container className="container text-center">
         //   <Container className="row align-items-center">
         //     <Container className="row">

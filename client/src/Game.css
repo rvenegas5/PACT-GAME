@@ -200,7 +200,7 @@ a {
 } */
 
 .table-game {
-  margin-top: 7px;
+  margin-top: 25%;
   background-image: url("./assets/table.jpg");
   display: flex;
   flex-direction: row;
@@ -219,3 +219,12 @@ a {
 .back-card:hover {
   cursor: pointer;
 }
+
+.message-modal{
+  font-size:20px;
+  font-family:'Quicksand';
+  text-align: center;
+  font-weight: bold;
+
+}
+

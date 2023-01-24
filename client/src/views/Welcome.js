@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "@mui/material/";
 import { useEffect } from "react";
 import { JoinRoom } from "../components/JoinRoom";
+import { CreateRoom } from "../components/CreateRoom";
 import Manual from "../components/Manual/manual";
 import { Button } from "@mui/material";
 
@@ -51,11 +52,12 @@ const Welcome = ({ redirectTo, images: { show, image } }) => {
           />
         </div>
         <div className="homepage-create">
-          <button className="homepage-button create" onClick={createRoom}>
-            Crear una Sala
-          </button>
+          <CreateRoom
+            room={{ createRoom, joinRoom, setRoomCode }}
+            images={{ show: true, image: "trial" }}
+          />
         </div>
-        <button className="homepage-button tuto" onClick={handleCloseTutorial}>
+        <button className="homepage-button" onClick={handleCloseTutorial}>
           Manual del Juego
         </button>
         {openTutorial && <Manual setOpenTutorial={setOpenTutorial}></Manual>}
