@@ -16,7 +16,6 @@ const io = socketio(server);
 const maxUsers = 4;
 app.use(cors());
 
-const playerNames = ["Player 1", "Player 2", "Player 3", "Player 4"];
 let identificadorIntervaloDeTiempo;
 
 
@@ -56,7 +55,7 @@ io.on("connection", (socket) => {
     } else {
       const { error, newUser } = addUser({
         id: socket.id,
-        name: playerNames[numberOfUsersInRoom],
+        name: payload.name,
         room: payload.room,
       });
 

@@ -46,15 +46,17 @@ const Welcome = ({ redirectTo, images: { show, image } }) => {
       <div className="homepage-form">
         <div className="homepage-join">
           <ModalRoom
-            room={{ joinRoom, setRoomCode }}
-            images={{ image: "trial" }}
+            payload={joinRoom}
+            room={[roomCode, setRoomCode]}
+            image="trial"
             type="join"
           />
         </div>
         <div className="homepage-create">
           <ModalRoom
-            room={{ createRoom, setRoomCode }}
-            images={{ image: "trial" }}
+            payload={createRoom}
+            room={[roomCode, setRoomCode]}
+            image="trial"
             type="create"
           />
         </div>

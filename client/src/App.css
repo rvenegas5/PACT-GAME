@@ -32,6 +32,7 @@
   box-shadow: 0 4px 0 #b76113, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
     0 8px 0 5px #75421f, 0 10px 0 5px #8a542b, 0 13px 0 5px #593116,
     0 13px 1px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fafafa;
 }
 
 .homepage-menu {

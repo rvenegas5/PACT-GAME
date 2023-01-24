@@ -1,6 +1,6 @@
 import "./App.css";
 import "./Game.css";
-import "./components/Header/Header.css"
+import "./components/Header/Header.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -10,7 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Room } from "./views/Room";
 import { Theme } from "./config/Theme";
 //import { Header } from "./components/Header";
-import Header from "./components/Header/Header"
+import Header from "./components/Header/Header";
 import { Welcome } from "./views/Welcome";
 import { NotFound } from "./views/NotFound";
 import { ThemeProvider } from "@mui/material/styles";
@@ -18,20 +18,8 @@ import { useEffect } from "react";
 
 const App = () => {
   const [roomCode, setRoomCode] = React.useState("");
-  // const location = useLocation();
-
   useEffect(() => {
-    // document.addEventListener("keydown", event => {
-    //   console.log(location.pathname);
-    //   if (location.pathname === "/") {
-    //     if (event.key === "Enter") {
-    //       if (roomCode === "") alert("Please, insert a room code");
-    //       else joinRoom();
-    //     }
-    //   }
-    // });
     const tmpCode = localStorage.getItem("pact-game.roomCode");
-
     if (tmpCode !== "") {
       setRoomCode(tmpCode);
     }
@@ -42,6 +30,7 @@ const App = () => {
       <div className="Homepage">
         <BrowserRouter>
           <Header room={"Home"}></Header>
+
           <Routes>
             {/* <Route path="/" element={<Homepage />} /> */}
             {/* <Route path="/play" element={<Game />} /> */}

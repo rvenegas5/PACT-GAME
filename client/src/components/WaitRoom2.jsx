@@ -4,7 +4,9 @@ import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 import { Loading } from "./Loading";
 import { Theme } from "../config/Theme";
 
-function WaitRoom2({ room, quit }) {
+function WaitRoom2({ quit }) {
+  const userName = localStorage.getItem("pact-game.userName");
+  const room = localStorage.getItem("pact-game.roomCode");
   const message = "Esperando a otros jugadores...";
   // const user = JSON.parse(localStorage.getItem("pact-game.user"));
   const copyCode = () => {
@@ -21,7 +23,7 @@ function WaitRoom2({ room, quit }) {
         <div className="row align-items-center my-3">
           <div className="container w-50 text-center justify-width">
             <div className="row justify-content-center">
-              <h1 className="displaye-4">{}</h1>
+              <h1 className="displaye-4">{userName}</h1>
               <h2 className="display-6">{message}</h2>
               <Loading />
             </div>
@@ -30,7 +32,7 @@ function WaitRoom2({ room, quit }) {
                 <input
                   id="roomCode"
                   class="form-control p-2"
-                  placeholder="Leave a comment here"
+                  placeholder="..."
                   disabled
                 ></input>
                 <label

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Button,
   Card,
@@ -15,8 +15,9 @@ import { generateRandomPath } from "../../utils/generateRandomPath";
 import { style, center, modal } from "../../config/Constants";
 
 function ModalRoom({
-  room: { payload, setRoomCode },
-  images: { image },
+  payload,
+  room: [roomCode, setRoomCode],
+  image,
   type
 }) {
   const imagePath =
@@ -27,6 +28,32 @@ function ModalRoom({
   const handleClose = () => setOpen(false);
   const buttonMessage = type === "join" ? "Unirse a sala" : "Crear sala";
   const buttonPayloadMessage = type === "join" ? "Unirse" : "Crear";
+
+  const validateUsername = () => {
+    if (userName === "") alert("Por favor, ingrese un nombre");
+  };
+
+  const validateRoomcode = () => {
+    if (userName === "") alert("Por favor, ingrese un código de sala");
+  };
+
+  useEffect(() => {
+    if (userName !== "") {
+      localStorage.setItem("pact-game.userName", userName);
+    }
+  }, [userName]);
+
+  const proxy = () => {
+    if (type === "join") {
+      validateRoomcode();
+      validateUsername();
+      if (userName !== "" && roomCode !== "") payload();
+    } else {
+      alert("Create");
+      validateUsername();
+      if (userName !== "") payload();
+    }
+  };
 
   return (
     <div>
@@ -48,7 +75,7 @@ function ModalRoom({
                 src={imagePath}
               />
             </CardContent>
-            {type !== "join" && (
+            {type === "join" && (
               <TextField
                 id="outlined-basic"
                 label="Código de Sala"
@@ -66,7 +93,7 @@ function ModalRoom({
               className="inputCode"
               onChange={event => setUserName(event.target.value)}
             />
-            <Button variant="contained" onClick={payload}>
+            <Button variant="contained" onClick={proxy}>
               {buttonPayloadMessage}
             </Button>
           </Box>

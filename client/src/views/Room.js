@@ -16,10 +16,10 @@ let socket;
 //   if (user && players) updateCookie(user, players);
 // };
 
-const Room = ({ code }) => {
+const Room = () => {
   const navigate = useNavigate();
 
-  const room = code;
+  const room = localStorage.getItem("pact-game.roomCode");
   const [roomFull, setRoomFull] = useState(false);
   const [user, setUser] = useState({});
   const [players, setPlayers] = useState([]);
@@ -28,11 +28,13 @@ const Room = ({ code }) => {
   const [openCard, setOpenCard] = useState(false);
   const [closeCard, setCloseCard] = useState(false);
 
+  const userName = localStorage.getItem("pact-game.userName");
+
   // Initialize socket
   useEffect(() => {
     if (players.length < maxPlayers) {
       socket = io.connect(ENDPOINT, connectionOptions);
-      socket.emit("join", { room: room }, error => {
+      socket.emit("join", { room: room, name: userName }, error => {
         if (error) return error;
       });
     } else {
