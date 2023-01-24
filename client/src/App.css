@@ -1,3 +1,11 @@
+.modalPayload {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+
 /* Homepage */
 .Homepage {
   background-image: url("./assets/Home.png");

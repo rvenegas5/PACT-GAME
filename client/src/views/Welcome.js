@@ -5,8 +5,7 @@ import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "@mui/material/";
 import { useEffect } from "react";
-import { JoinRoom } from "../components/JoinRoom";
-import { CreateRoom } from "../components/CreateRoom";
+import { ModalRoom } from "../components/Modals/ModalRoom";
 import Manual from "../components/Manual/manual";
 import { Button } from "@mui/material";
 
@@ -46,15 +45,17 @@ const Welcome = ({ redirectTo, images: { show, image } }) => {
     <div className="homepage-menu">
       <div className="homepage-form">
         <div className="homepage-join">
-          <JoinRoom
-            room={{ createRoom, joinRoom, setRoomCode }}
-            images={{ show: true, image: "trial" }}
+          <ModalRoom
+            room={{ joinRoom, setRoomCode }}
+            images={{ image: "trial" }}
+            type="join"
           />
         </div>
         <div className="homepage-create">
-          <CreateRoom
-            room={{ createRoom, joinRoom, setRoomCode }}
-            images={{ show: true, image: "trial" }}
+          <ModalRoom
+            room={{ createRoom, setRoomCode }}
+            images={{ image: "trial" }}
+            type="create"
           />
         </div>
         <button className="homepage-button" onClick={handleCloseTutorial}>
