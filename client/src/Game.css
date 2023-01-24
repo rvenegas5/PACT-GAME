@@ -16,6 +16,13 @@
   text-align: center;
 }
 
+.room {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .waitRoom-container {
   width: 30vw;
 }
@@ -26,6 +33,8 @@
 
 .roomCode-container {
   gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .more-margin {

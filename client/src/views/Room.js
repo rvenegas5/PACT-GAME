@@ -54,6 +54,7 @@ const Room = ({ code }) => {
       setPlayers(data.users);
     });
     socket.on("currentUserData", ({ data }) => {
+      console.log("currentUserData", data);
       localStorage.setItem("pact-game.user", JSON.stringify(data));
       setUser(data);
     });

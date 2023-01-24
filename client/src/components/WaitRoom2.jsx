@@ -4,7 +4,9 @@ import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 import { Loading } from "./Loading";
 import { Theme } from "../config/Theme";
 
-function WaitRoom2({ room, message = "Waiting for others", quit }) {
+function WaitRoom2({ room, quit }) {
+  const message = "Esperando a otros jugadores...";
+  // const user = JSON.parse(localStorage.getItem("pact-game.user"));
   const copyCode = () => {
     let tmp = document.createElement("input");
     document.getElementsByTagName("body")[0].appendChild(tmp);
@@ -14,16 +16,17 @@ function WaitRoom2({ room, message = "Waiting for others", quit }) {
     document.getElementsByTagName("body")[0].removeChild(tmp);
   };
   return (
-    <Card className="waitRoom-container justify-width">
-      <CardContent>
+    <Card className="waitRoom-container">
+      <CardContent className="">
         <div className="row align-items-center my-3">
           <div className="container w-50 text-center justify-width">
             <div className="row justify-content-center">
-              <h1 class="display-6">{message}</h1>
+              <h1 className="displaye-4">{}</h1>
+              <h2 className="display-6">{message}</h2>
               <Loading />
             </div>
             <div className="roomCode-container row align-items-center justify-content-center">
-              <div class="form-floating col-8 my-3">
+              <div class="form-floating row my-3">
                 <input
                   id="roomCode"
                   class="form-control p-2"
@@ -38,7 +41,7 @@ function WaitRoom2({ room, message = "Waiting for others", quit }) {
                   {room}
                 </label>
               </div>
-              <div className="col-4">
+              <div className="row">
                 <Button onClick={copyCode} variant="contained">
                   <i>
                     <ContentPasteIcon />
@@ -53,7 +56,7 @@ function WaitRoom2({ room, message = "Waiting for others", quit }) {
         <div className="container text-center w-50 more-margin">
           <div className="row justify-content-center align-items-center">
             <Button onClick={quit} variant="contained">
-              QUIT
+              Salir
             </Button>
           </div>
         </div>

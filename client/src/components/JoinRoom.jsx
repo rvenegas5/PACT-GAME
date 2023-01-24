@@ -1,13 +1,17 @@
 import React from "react";
 import {
-  Button, Card,
-  CardActions, CardContent,
-  Container,Modal, Box
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Container,
+  Modal,
+  Box
 } from "@mui/material";
-import CancelIcon from '@mui/icons-material/Cancel';
-import { Link } from 'react-router-dom'
+import CancelIcon from "@mui/icons-material/Cancel";
+import { Link } from "react-router-dom";
 import { generateRandomPath } from "../utils/generateRandomPath";
-import { style} from "../config/Constants";
+import { style } from "../config/Constants";
 
 function JoinRoom({
   room: { setRoomCode, joinRoom, createRoom },
@@ -19,48 +23,68 @@ function JoinRoom({
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  
 
   return (
     <div>
-      <button className="homepage-button unirse" 
-          onClick={handleOpen}>
-          Unirse a Sala
-      </button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
+      <Button className="homepage-button unirse" onClick={handleOpen}>
+        Unirse a Sala
+      </Button>
+      <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
           <div className="titleCloseBtn">
-            <Button  onClick={handleClose}>
-              <CancelIcon/>
+            <Button onClick={handleClose}>
+              <CancelIcon />
             </Button>
           </div>
           {showImages && (
-        <CardContent className="welcome--image-container">
-          <img
-            className="img-tumbnail w-5"
-            alt="Animal aleatorio"
-            src={imagePath}
-          />
-        </CardContent>
-      )}
-          
+            <CardContent className="welcome--image-container">
+              <img
+                className="img-tumbnail w-5"
+                alt="Animal aleatorio"
+                src={imagePath}
+              />
+            </CardContent>
+          )}
+
           <div className="body">
-            
-            <p style={{ color:'black',fontSize: '20px' ,fontFamily:'Quicksand'}}>Ingrese el código de sala:</p>
-            <input className='inputCode' type='text' placeholder='Código de Sala' onChange={(event) => setRoomCode(event.target.value)} />
+            <p
+              style={{
+                color: "black",
+                fontSize: "20px",
+                fontFamily: "Quicksand"
+              }}
+            >
+              Ingrese el código de sala:
+            </p>
+            <input
+              className="inputCode"
+              type="text"
+              placeholder="Código de Sala"
+              onChange={event => setRoomCode(event.target.value)}
+            />
           </div>
           <div className="body">
-            <p style={{ color:'black',fontSize: '20px' ,fontFamily:'Quicksand'}}>Nombre de Usuario:</p>
-           <input className='inputCode' type='text' placeholder='username' onChange={(event) => console.log(event.target.value)} />
+            <p
+              style={{
+                color: "black",
+                fontSize: "20px",
+                fontFamily: "Quicksand"
+              }}
+            >
+              Nombre de Usuario:
+            </p>
+            <input
+              className="inputCode"
+              type="text"
+              placeholder="username"
+              onChange={event => console.log(event.target.value)}
+            />
           </div>
-        <div className="footer">
-          <button onClick={joinRoom} id="IngresarBtn">
-            Ingresar
-          </button>
-        </div>
+          <div className="footer">
+            <button onClick={joinRoom} id="IngresarBtn">
+              Ingresar
+            </button>
+          </div>
         </Box>
       </Modal>
     </div>
