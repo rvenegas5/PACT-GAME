@@ -19,7 +19,13 @@ const style = {
   border: "1px solid ",
   borderRadius: 3,
   boxShadow: 24,
-  p: 2
+  p: 2,
+  width: 350,
+  height: 450,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center"
 };
 
 const center = {
@@ -42,6 +48,24 @@ const modal = {
   boxShadow: 24
 };
 
+const manual = {
+  position: "absolute",
+  // justifyContent: 'space-evenly',
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "auto",
+  height: "auto",
+  // width: 600,
+  bgcolor: "background.paper",
+  border: "1px solid ",
+  borderRadius: 3,
+  boxShadow: 24,
+  p: 2,
+  width: 750,
+  height: 750
+};
+
 const reglas = {
   1: "Se selecciona aleatoriamente al primer jugador que tomará el papel del acusado",
   2: "La persona tomará una carta de la baraja y leerá el caso.",
@@ -59,5 +83,6 @@ export {
   style,
   reglas,
   center,
-  modal
+  modal,
+  manual
 };

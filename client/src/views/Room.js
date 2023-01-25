@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Container, Modal, Box } from "@mui/material";
-import { WaitRoom } from "../components/WaitRoom";
 import { WaitRoom2 } from "../components/WaitRoom2";
 import { maxPlayers, ENDPOINT, connectionOptions } from "../config/Constants";
 import io from "socket.io-client";
