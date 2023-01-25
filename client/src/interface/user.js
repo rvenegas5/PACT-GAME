@@ -20,6 +20,30 @@ class User {
     this.name = name;
     this.room = room;
   }
+
+  getId() {
+    return this.id;
+  }
+
+  setId(id) {
+    this.id = id;
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  setName(name) {
+    this.name = name;
+  }
+
+  getRoom() {
+    return this.room;
+  }
+
+  setRoom(room) {
+    this.room = room;
+  }
 }
 
 export { User };

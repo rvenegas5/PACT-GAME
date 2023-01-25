@@ -66,6 +66,31 @@ const manual = {
   height: 750
 };
 
+const modalCarta = {
+  position: "absolute",
+  // justifyContent: 'space-evenly',
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "auto",
+  height: "auto",
+  // width: 600,
+  bgcolor: "background.paper",
+  border: "1px solid ",
+  borderRadius: 3,
+  boxShadow: 24,
+  p: 2,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  minHeight: "50vh",
+  width: "fitcontent",
+  height: "fitcontent",
+  maxWidth: "80vw",
+  maxHeight: "70vh"
+};
+
 const avatar = {
   width: 100,
   height: 100
@@ -90,5 +115,6 @@ export {
   center,
   modal,
   manual,
-  avatar
+  avatar,
+  modalCarta
 };

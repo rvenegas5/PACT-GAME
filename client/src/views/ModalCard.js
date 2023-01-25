@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "../components/Header/Header.css";
 import ModalWait from "../components/Modal";
 import ModalFeed from "../components/Modals/ModalFeed";
-import { style } from "../config/Constants";
+import { modalCarta } from "../config/Constants";
 import { generateRandomPath } from "../utils/generateRandomPath";
 import QuestionAnswerTwoToneIcon from "@mui/icons-material/QuestionAnswerTwoTone";
 
@@ -32,7 +32,7 @@ const ModalCard = ({ setOpenCard, currentCard, setCurrentCard }) => {
   return (
     <>
       <Modal open={setOpenCard} onClose={handleClose}>
-        <Box sx={style}>
+        <Box sx={modalCarta}>
           {typeCardSpecial ? (
             <img
               className=""

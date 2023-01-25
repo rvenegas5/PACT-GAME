@@ -72,8 +72,11 @@ const Room = () => {
     });
     socket.on("roomData", data => {
       if (data.users.length === maxPlayers) setRoomFull(true);
-      let tmp = data.users;
-      tmp = tmp.map(user => new User(user));
+      let tmp = [];
+      data.users.forEach(user => {
+        tmp.push(new User(user));
+      });
+
       setPlayers(tmp);
       localStorage.setItem("pact-game.players", JSON.stringify(tmp));
     });
@@ -139,7 +142,7 @@ const Room = () => {
             <AvatarBubble
               game={{ currentAcusado, player1 }}
               avatar={{ avatar, avatar1 }}
-              message="Jugador 1"
+              message={`Jugador 1: {player1.getName()}`}
             />
           </div>
           <div className="player-top-right">
