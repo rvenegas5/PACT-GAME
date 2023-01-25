@@ -54,4 +54,4 @@ function Manual({
   );
 }
 
-export default Manual;
+export { Manual };

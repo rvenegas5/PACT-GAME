@@ -7,19 +7,18 @@ import {
   Container,
   Modal,
   Box,
-  TextField
+  TextField,
+  Alert,
+  Collapse,
+  IconButton
 } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
+import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import { generateRandomPath } from "../../utils/generateRandomPath";
 import { style, center, modal } from "../../config/Constants";
 
-function ModalRoom({
-  payload,
-  room: [roomCode, setRoomCode],
-  image,
-  type
-}) {
+function ModalRoom({ payload, room: [roomCode, setRoomCode], image, type }) {
   const imagePath =
     image === "trial" ? "./assets/trial.png" : generateRandomPath();
   const [open, setOpen] = React.useState(false);
@@ -28,14 +27,22 @@ function ModalRoom({
   const handleClose = () => setOpen(false);
   const buttonMessage = type === "join" ? "Unirse a sala" : "Crear sala";
   const buttonPayloadMessage = type === "join" ? "Unirse" : "Crear";
+  const [showNameAlert, setShowNameAlert] = React.useState(false);
+  const [showCodeAlert, setShowCodeAlert] = React.useState(false);
 
   const validateUsername = () => {
-    if (userName === "") alert("Por favor, ingrese un nombre");
+    if (userName === "") setShowNameAlert(true);
   };
 
   const validateRoomcode = () => {
-    if (userName === "") alert("Por favor, ingrese un código de sala");
+    if (localStorage.getItem("pact-game.roomCode") === "")
+      setShowCodeAlert(true);
   };
+
+  useEffect(() => {
+    setShowNameAlert(false);
+    setShowCodeAlert(false);
+  }, []);
 
   useEffect(() => {
     if (userName !== "") {
@@ -49,24 +56,23 @@ function ModalRoom({
       validateUsername();
       if (userName !== "" && roomCode !== "") payload();
     } else {
-      alert("Create");
       validateUsername();
       if (userName !== "") payload();
     }
   };
 
   return (
-    <div>
+    <Box>
       <button className="homepage-button unirse" onClick={handleOpen}>
         {buttonMessage}
       </button>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-          <div className="titleCloseBtn">
+          <Box className="titleCloseBtn">
             <Button onClick={handleClose}>
               <CancelIcon />
             </Button>
-          </div>
+          </Box>
           <Box sx={center}>
             <CardContent className="welcome--image-container">
               <img
@@ -96,10 +102,46 @@ function ModalRoom({
             <Button variant="contained" onClick={proxy}>
               {buttonPayloadMessage}
             </Button>
+            <Collapse in={showNameAlert}>
+              <Alert
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => setShowNameAlert(false)}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                }
+                sx={{ mb: 2 }}
+                severity="warning"
+              >
+                Por favor, ingresa tu nick
+              </Alert>
+            </Collapse>
+            <Collapse in={showCodeAlert}>
+              <Alert
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => setShowNameAlert(false)}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                }
+                sx={{ mb: 2 }}
+                severity="warning"
+              >
+                Por favor, ingresa el room code
+              </Alert>
+            </Collapse>
           </Box>
         </Box>
       </Modal>
-    </div>
+    </Box>
   );
 }
 

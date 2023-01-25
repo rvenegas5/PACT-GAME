@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "@mui/material/";
 import { useEffect } from "react";
 import { ModalRoom } from "../components/Modals/ModalRoom";
-import Manual from "../components/Manual/manual";
+import { Manual } from "../components/Manual/Manual";
 import { Button } from "@mui/material";
 
 // import { StyledButton } from "../components/StyledButton";

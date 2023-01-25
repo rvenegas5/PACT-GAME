@@ -2,20 +2,35 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Container, Modal, Box } from "@mui/material";
 import { WaitRoom2 } from "../components/WaitRoom2";
-import { maxPlayers, ENDPOINT, connectionOptions } from "../config/Constants";
+import {
+  maxPlayers,
+  ENDPOINT,
+  connectionOptions,
+  avatar
+} from "../config/Constants";
 import io from "socket.io-client";
 import { all } from "../utils/cards";
 import shuffleArray from "../utils/shuffleArray";
 import ModalCard from "./ModalCard";
+import { User } from "../interface/user";
+import { AvatarBubble } from "../components/Avatar/Avatar";
 
 import { avatar1, avatar2, avatar3, avatar4 } from "../config/Avatars";
 
 // Constants
 let socket;
 
-// const saveCookie = (user, players) => {
-//   if (user && players) updateCookie(user, players);
-// };
+// Cambiar rol de acusado dinamicamente
+const getAcusado = (players, currentAcusado) => {
+  if (players[players.length - 1] === currentAcusado) return players[0];
+  else {
+    for (let i = 0; i < players.length - 1; i++) {
+      if (players[i] === currentAcusado) {
+        return players[i + 1];
+      }
+    }
+  }
+};
 
 const Room = () => {
   const navigate = useNavigate();
@@ -23,16 +38,21 @@ const Room = () => {
   const room = localStorage.getItem("pact-game.roomCode");
   const [roomFull, setRoomFull] = useState(false);
   const [user, setUser] = useState({});
-  const [players, setPlayers] = useState([]);
+  const [players, setPlayers] = useState([{}]);
   const [normalCards, setNormalCards] = useState(shuffleArray(all));
   const [currentCard, setCurrentCard] = useState([]);
   const [openCard, setOpenCard] = useState(false);
   const [closeCard, setCloseCard] = useState(false);
-
+  const [currentAcusado, setCurrentAcusado] = useState({});
   const userName = localStorage.getItem("pact-game.userName");
+  let player1;
+  let player2;
+  let player3;
+  let player4;
 
   // Initialize socket
   useEffect(() => {
+    console.log(players);
     if (players.length < maxPlayers) {
       socket = io.connect(ENDPOINT, connectionOptions);
       socket.emit("join", { room: room, name: userName }, error => {
@@ -51,15 +71,17 @@ const Room = () => {
       setRoomFull(true);
     });
     socket.on("roomData", data => {
-      localStorage.setItem("pact-game.players", JSON.stringify(data.users));
       if (data.users.length === maxPlayers) setRoomFull(true);
-      setPlayers(data.users);
+      let tmp = data.users;
+      tmp = tmp.map(user => new User(user));
+      setPlayers(tmp);
+      localStorage.setItem("pact-game.players", JSON.stringify(tmp));
     });
     socket.on("currentUserData", ({ data }) => {
-      console.log("currentUserData", data);
+      console.log("currentUserData", new User(data));
       // localStorage.setItem(`pact-game.user_${data.id}`, JSON.stringify(data));
-      localStorage.setItem(`pact-game.user`, JSON.stringify(data));
-      setUser(data);
+      localStorage.setItem(`pact-game.user`, JSON.stringify(new User(data)));
+      setUser(new User(data));
     });
   }, []);
 
@@ -89,7 +111,17 @@ const Room = () => {
     setOpenCard(true);
   };
 
-  const initGame = () => {};
+  const initGame = () => {
+    let currentAcusado = players[0];
+    setCurrentAcusado(currentAcusado);
+    player1 = players[0];
+    player2 = players[1];
+    player3 = players[2];
+    player4 = players[3];
+
+    console.log("initGame", players);
+  };
+
   return (
     <Container className="room" style={{ maxWidth: "40%" }}>
       {!roomFull && (
@@ -104,48 +136,32 @@ const Room = () => {
       {roomFull && (
         <div>
           <div className="player-top-left">
-            <div>
-              <img
-                src={avatar1}
-                className="avatar-img"
-              />
-            </div>
-            <div>
-              <span className="player-name">{players[0].name}</span>
-            </div>
+            <AvatarBubble
+              game={{ currentAcusado, player1 }}
+              avatar={{ avatar, avatar1 }}
+              message="Jugador 1"
+            />
           </div>
           <div className="player-top-right">
-            <div>
-              <img
-                src={avatar2}
-                className="avatar-img"
-              />
-            </div>
-            <div>
-              <span className="player-name">{players[1].name}</span>
-            </div>
+            <AvatarBubble
+              game={{ currentAcusado, player2 }}
+              avatar={{ avatar, avatar2 }}
+              message="Jugador 2"
+            />
           </div>
           <div className="player-bottom-left">
-            <div>
-              <img
-                src={avatar3}
-                className="avatar-img"
-              />
-            </div>
-            <div>
-              <span className="player-name">{players[2].name}</span>
-            </div>
+            <AvatarBubble
+              game={{ currentAcusado, player3 }}
+              avatar={{ avatar, avatar3 }}
+              message="Jugador 3"
+            />
           </div>
           <div className="player-bottom-right">
-            <div>
-              <img
-                src={avatar4}
-                className="avatar-img"
-              />
-            </div>
-            <div>
-              <span className="player-name">{players[3].name}</span>
-            </div>
+            <AvatarBubble
+              game={{ currentAcusado, player4 }}
+              avatar={{ avatar, avatar4 }}
+              message="Jugador 4"
+            />
           </div>
           <div className="table-game">
             {normalCards.length > 0 && (

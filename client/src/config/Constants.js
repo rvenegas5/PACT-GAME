@@ -66,6 +66,11 @@ const manual = {
   height: 750
 };
 
+const avatar = {
+  width: 100,
+  height: 100
+};
+
 const reglas = {
   1: "Se selecciona aleatoriamente al primer jugador que tomará el papel del acusado",
   2: "La persona tomará una carta de la baraja y leerá el caso.",
@@ -84,5 +89,6 @@ export {
   reglas,
   center,
   modal,
-  manual
+  manual,
+  avatar
 };
