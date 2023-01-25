@@ -60,10 +60,12 @@ const Welcome = ({ redirectTo, images: { show, image } }) => {
             type="create"
           />
         </div>
-        <button className="homepage-button" onClick={handleCloseTutorial}>
-          Manual del Juego
-        </button>
-        {openTutorial && <Manual setOpenTutorial={setOpenTutorial}></Manual>}
+        <div className="homepage-manual">
+          <Manual
+            modal={{ openTutorial, setOpenTutorial }}
+            handleCloseTutorial={handleCloseTutorial}
+          />
+        </div>
       </div>
     </div>
 

@@ -8,6 +8,8 @@ import { all } from "../utils/cards";
 import shuffleArray from "../utils/shuffleArray";
 import ModalCard from "./ModalCard";
 
+import { avatar1, avatar2, avatar3, avatar4 } from "../config/Avatars";
+
 // Constants
 let socket;
 
@@ -55,7 +57,8 @@ const Room = () => {
     });
     socket.on("currentUserData", ({ data }) => {
       console.log("currentUserData", data);
-      localStorage.setItem("pact-game.user", JSON.stringify(data));
+      // localStorage.setItem(`pact-game.user_${data.id}`, JSON.stringify(data));
+      localStorage.setItem(`pact-game.user`, JSON.stringify(data));
       setUser(data);
     });
   }, []);
@@ -103,45 +106,45 @@ const Room = () => {
           <div className="player-top-left">
             <div>
               <img
-                src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairCurly&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=BeardMedium&facialHairColor=Auburn&clotheType=ShirtCrewNeck&clotheColor=Pink&eyeType=Default&eyebrowType=SadConcerned&mouthType=Grimace&skinColor=Light"
+                src={avatar1}
                 className="avatar-img"
               />
             </div>
             <div>
-              <span className="player-name">Player 1</span>
+              <span className="player-name">{players[0].name}</span>
             </div>
           </div>
           <div className="player-top-right">
             <div>
               <img
-                src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairTheCaesarSidePart&accessoriesType=Prescription02&hairColor=Auburn&facialHairType=BeardMedium&facialHairColor=Auburn&clotheType=BlazerSweater&clotheColor=Heather&eyeType=Squint&eyebrowType=RaisedExcited&mouthType=Tongue&skinColor=Pale"
+                src={avatar2}
                 className="avatar-img"
               />
             </div>
             <div>
-              <span className="player-name">Player 2</span>
+              <span className="player-name">{players[1].name}</span>
             </div>
           </div>
           <div className="player-bottom-left">
             <div>
               <img
-                src="https://avataaars.io/?avatarStyle=Circle&topType=Eyepatch&accessoriesType=Blank&hairColor=Brown&facialHairType=BeardMajestic&facialHairColor=Black&clotheType=BlazerShirt&clotheColor=PastelBlue&eyeType=Default&eyebrowType=RaisedExcitedNatural&mouthType=Sad&skinColor=Yellow"
+                src={avatar3}
                 className="avatar-img"
               />
             </div>
             <div>
-              <span className="player-name">Player 3</span>
+              <span className="player-name">{players[2].name}</span>
             </div>
           </div>
           <div className="player-bottom-right">
             <div>
               <img
-                src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=Blue&facialHairType=MoustacheFancy&facialHairColor=Red&clotheType=Hoodie&clotheColor=PastelRed&eyeType=EyeRoll&eyebrowType=UpDownNatural&mouthType=Default&skinColor=Pale"
+                src={avatar4}
                 className="avatar-img"
               />
             </div>
             <div>
-              <span className="player-name">Player 4</span>
+              <span className="player-name">{players[3].name}</span>
             </div>
           </div>
           <div className="table-game">
@@ -165,23 +168,6 @@ const Room = () => {
             )}
           </div>
         </div>
-
-        // <Container className="container text-center">
-        //   <Container className="row align-items-center">
-        //     <Container className="row">
-        //       {/* <h1>
-        //         THE ROOM IS FULL,
-        //         <span className="display-6">{user.name}</span>
-        //       </h1> */}
-
-        //     </Container>
-        //     <Container className="row">
-        //       <Button onClick={quit} variant="contained">
-        //         QUIT
-        //       </Button>
-        //     </Container>
-        //   </Container>
-        // </Container>
       )}
     </Container>
   );
