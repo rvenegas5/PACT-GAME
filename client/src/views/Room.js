@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Container, Modal, Box } from "@mui/material";
+import { Button, Container, Modal, Box, Avatar } from "@mui/material";
 import { WaitRoom2 } from "../components/WaitRoom2";
 import {
   maxPlayers,
@@ -13,7 +13,7 @@ import { all } from "../utils/cards";
 import shuffleArray from "../utils/shuffleArray";
 import ModalCard from "./ModalCard";
 import { User } from "../interface/user";
-import { AvatarBubble } from "../components/Avatar/Avatar";
+import { AvatarBubble } from "../components/Avatar/AvatarBubble";
 
 import { avatar1, avatar2, avatar3, avatar4 } from "../config/Avatars";
 
@@ -141,28 +141,28 @@ const Room = () => {
           <div className="player-top-left">
             <AvatarBubble
               game={{ currentAcusado, player1 }}
-              avatar={{ avatar, avatar1 }}
+              avatarPath={avatar1}
               message={`Jugador 1: {player1.getName()}`}
             />
           </div>
           <div className="player-top-right">
             <AvatarBubble
               game={{ currentAcusado, player2 }}
-              avatar={{ avatar, avatar2 }}
+              avatarPath={avatar2}
               message="Jugador 2"
             />
           </div>
           <div className="player-bottom-left">
             <AvatarBubble
               game={{ currentAcusado, player3 }}
-              avatar={{ avatar, avatar3 }}
+              avatarPath={avatar3}
               message="Jugador 3"
             />
           </div>
           <div className="player-bottom-right">
             <AvatarBubble
               game={{ currentAcusado, player4 }}
-              avatar={{ avatar, avatar4 }}
+              avatarPath={avatar4}
               message="Jugador 4"
             />
           </div>

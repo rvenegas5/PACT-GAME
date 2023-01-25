@@ -10,9 +10,9 @@
 // const avatar4 =
 //   "https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=Blue&facialHairType=MoustacheFancy&facialHairColor=Red&clotheType=Hoodie&clotheColor=PastelRed&eyeType=EyeRoll&eyebrowType=UpDownNatural&mouthType=Default&skinColor=Pale";
 
-const avatar1 = "src/asstes/avatars/avatar1.png";
-const avatar2 = "src/asstes/avatars/avatar2.png";
-const avatar3 = "src/asstes/avatars/avatar3.png";
-const avatar4 = "src/asstes/avatars/avatar4.png";
+const avatar1 = require("../assets/avatars/avatar1.png");
+const avatar2 = require("../assets/avatars/avatar2.png");
+const avatar3 = require("../assets/avatars/avatar3.png");
+const avatar4 = require("../assets/avatars/avatar4.png");
 
 export { avatar1, avatar2, avatar3, avatar4 };
