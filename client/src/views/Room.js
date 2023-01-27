@@ -69,9 +69,8 @@ const Room = () => {
   useEffect(() => {
     socket.on("roomFull", () => {
       setRoomFull(true);
-    });
+    });    
     socket.on("roomData", data => {
-      if (data.users.length === maxPlayers) setRoomFull(true);
       let tmp = [];
       data.users.forEach(user => {
         tmp.push(new User(user));
@@ -79,6 +78,7 @@ const Room = () => {
 
       setPlayers(tmp);
       localStorage.setItem("pact-game.players", JSON.stringify(tmp));
+      if (data.users.length === maxPlayers) setRoomFull(true);      
     });
     socket.on("currentUserData", ({ data }) => {
       console.log("currentUserData", new User(data));
@@ -93,6 +93,7 @@ const Room = () => {
     if (roomFull) {
       initGame();
       console.log("sala llena , comenzar juego");
+      console.log(JSON.parse(localStorage.getItem("pact-game.players")));
       socket.emit("comenzarTiempo", () => {
         console.log("Empezó a contar... ");
       });
@@ -142,28 +143,28 @@ const Room = () => {
             <AvatarBubble
               game={{ currentAcusado, player1 }}
               avatarPath={avatar1}
-              message={`Jugador 1: {player1.getName()}`}
+              message={JSON.parse(localStorage.getItem("pact-game.players"))[0].name}
             />
           </div>
           <div className="player-top-right">
             <AvatarBubble
               game={{ currentAcusado, player2 }}
               avatarPath={avatar2}
-              message="Jugador 2"
+              message={JSON.parse(localStorage.getItem("pact-game.players"))[1].name}
             />
           </div>
           <div className="player-bottom-left">
             <AvatarBubble
               game={{ currentAcusado, player3 }}
               avatarPath={avatar3}
-              message="Jugador 3"
+              message={JSON.parse(localStorage.getItem("pact-game.players"))[2].name}
             />
           </div>
           <div className="player-bottom-right">
             <AvatarBubble
               game={{ currentAcusado, player4 }}
               avatarPath={avatar4}
-              message="Jugador 4"
+              message={JSON.parse(localStorage.getItem("pact-game.players"))[3].name}
             />
           </div>
           <div className="table-game">
