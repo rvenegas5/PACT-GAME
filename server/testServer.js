@@ -82,7 +82,14 @@ io.on("connection", (socket) => {
     console.log("test", payload);
   });
 
-
+  socket.on("sendMessage", (payload, callback) => {
+    const user = getUser(socket.id);
+    io.to(user.room).emit("message", {
+      user: user.name,
+      text: payload.message,
+    });
+    callback();
+  });
 
   socket.on("logOut", () => {
     const user = removeUser(socket.id);

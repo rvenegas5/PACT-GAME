@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-function Chat() {
-
+function Chat({
+    socket : {socket}
+}) {
     const [isChatBoxHidden, setChatBoxHidden] = useState(true);
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
-
     useEffect(() => {
         socket.on("message", message => {
             setMessages(messages => [...messages, message]);
@@ -14,7 +14,6 @@ function Chat() {
             chatBody.scrollTop = chatBody.scrollHeight;
         });
     }, []);
-
     const toggleChatBox = () => {
         const chatBody = document.querySelector(".chat-body");
         if (isChatBoxHidden) {
@@ -25,7 +24,6 @@ function Chat() {
             setChatBoxHidden(true);
         }
     };
-
     const sendMessage = event => {
         event.preventDefault();
         if (message) {
@@ -59,13 +57,13 @@ function Chat() {
                 <div className="chat-body">
                     <div className="msg-insert">
                         {messages.map(msg => {
-                            if (msg.user === "Player 2")
+                            if (msg.user != "a")
                                 return (
                                     <div className="msg-receive">
                                         {msg.text}
                                     </div>
                                 );
-                            if (msg.user === "Player 1")
+                            if (msg.user == "a")
                                 return (
                                     <div className="msg-send">{msg.text}</div>
                                 );
@@ -90,4 +88,4 @@ function Chat() {
     )
 }
 
-export default Chat;
+export {Chat};

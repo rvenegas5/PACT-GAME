@@ -14,8 +14,8 @@ import shuffleArray from "../utils/shuffleArray";
 import ModalCard from "./ModalCard";
 import { User } from "../interface/user";
 import { AvatarBubble } from "../components/Avatar/AvatarBubble";
-
 import { avatar1, avatar2, avatar3, avatar4 } from "../config/Avatars";
+import { Chat } from "../components/Chat/Chat";
 
 // Constants
 let socket;
@@ -104,6 +104,10 @@ const Room = () => {
     }
   }, [roomFull]);
 
+
+
+
+
   const quit = () => {
     navigate("/");
   };
@@ -126,6 +130,10 @@ const Room = () => {
     console.log("initGame", players);
   };
 
+
+
+
+
   return (
     <Container className="room" style={{ maxWidth: "40%" }}>
       {!roomFull && (
@@ -138,6 +146,7 @@ const Room = () => {
       )}
       {/* Display the game */}
       {roomFull && (
+        <>
         <div>
           <div className="player-top-left">
             <AvatarBubble
@@ -188,6 +197,9 @@ const Room = () => {
             )}
           </div>
         </div>
+        <Chat socket={{socket}}/>
+        
+        </>
       )}
     </Container>
   );
