@@ -84,6 +84,7 @@ const Room = () => {
       console.log("currentUserData", new User(data));
       // localStorage.setItem(`pact-game.user_${data.id}`, JSON.stringify(data));
       localStorage.setItem(`pact-game.user`, JSON.stringify(new User(data)));
+      sessionStorage.setItem(`pact-game.user`, JSON.stringify(new User(data)));
       setUser(new User(data));
     });
   }, []);

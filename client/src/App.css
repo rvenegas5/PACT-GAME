@@ -379,9 +379,10 @@
   left: 20px;
 }
 .chat-head {
+  padding-left: 20px;
   width: inherit;
   height: 45px;
-  background: #2c3e50;
+  background-image: url(/static/media/table.4de707d3.jpg);
   border-radius: 5px 5px 0px 0px;
 }
 .chat-head h2 {
@@ -420,7 +421,7 @@
 .chat-text input:active,
 .chat-text input:focus,
 .chat-text input:hover {
-  border-color: royalblue;
+  border-color: rgb(225, 124, 65);
 }
 .msg-send {
   background: #406a4b;
@@ -428,6 +429,7 @@
 .msg-receive {
   background: #595080;
 }
+
 .msg-send,
 .msg-receive {
   width: 285px;
@@ -442,23 +444,78 @@
 .msg-receive:before {
   content: "";
   width: 0px;
-  height: 0px;
+  height: 34px;
   position: absolute;
   border: 15px solid;
   border-color: transparent #595080 transparent transparent;
   left: -29px;
-  top: 7px;
+  top: 1px;
 }
 .msg-send:after {
   content: "";
   width: 0px;
-  height: 0px;
+  height: 34px;
   position: absolute;
   border: 15px solid;
   border-color: transparent transparent transparent #406a4b;
   right: -29px;
-  top: 7px;
+  top: 1px;
 }
+
+.color-jugador-1{
+  background: #4e8fb5;
+}
+.color-jugador-2{
+  background: #406a4b;
+}
+.color-jugador-3{
+  background: #595080;
+}
+.color-jugador-4{
+  background: #294d91;
+}
+
+.msg-receive.color-jugador-1:before {
+  border-color: transparent #4e8fb5 transparent transparent;
+}
+.msg-send.color-jugador-1:after {
+  border-color: transparent transparent transparent #4e8fb5;
+}
+
+.msg-receive.color-jugador-2:before {
+  border-color: transparent #406a4b transparent transparent;
+}
+.msg-send.color-jugador-2:after {
+  border-color: transparent transparent transparent #406a4b;
+}
+
+.msg-receive.color-jugador-3:before {
+  border-color: transparent #595080 transparent transparent;
+}
+.msg-send.color-jugador-3:after {
+  border-color: transparent transparent transparent #595080;
+}
+
+.msg-receive.color-jugador-4:before {
+  border-color: transparent #294d91 transparent transparent;
+}
+.msg-send.color-jugador-4:after {
+  border-color: transparent transparent transparent #294d91;
+}
+
+.material-icons{
+  color:white;
+}
+
+
+
+
+
+
+
+
+
+
 .msg-receive:hover,
 .msg-send:hover {
   opacity: 0.9;

@@ -57,15 +57,23 @@ function Chat({
                 <div className="chat-body">
                     <div className="msg-insert">
                         {messages.map(msg => {
-                            if (msg.user != "a")
+                            let usuario=JSON.parse(sessionStorage.getItem("pact-game.user")).name
+                            let jugadores = JSON.parse(localStorage.getItem("pact-game.players"))
+                            let n=0
+                            for (let i=0; i < jugadores.length; i++){
+                                if(jugadores[i].name==msg.user) n=i
+                            }
+                            let nombreClase1 = "msg-receive color-jugador-"+(n+1).toString()
+                            let nombreClase2 = "msg-send color-jugador-"+(n+1).toString()
+                            if (msg.user != usuario)
                                 return (
-                                    <div className="msg-receive">
+                                    <div className={nombreClase1}>
                                         {msg.text}
                                     </div>
                                 );
-                            if (msg.user == "a")
+                            if (msg.user == usuario)
                                 return (
-                                    <div className="msg-send">{msg.text}</div>
+                                    <div className={nombreClase2}>{msg.text}</div>
                                 );
                         })}
                     </div>
